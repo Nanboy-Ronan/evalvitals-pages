@@ -171,21 +171,7 @@
   .teaser{margin:0;border:1px solid var(--border);border-radius:16px;background:var(--surface);box-shadow:var(--shadow);overflow:hidden;}
   .teaser-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 1rem;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);}
   .teaser-head span:first-child{color:var(--brand);}
-  .teaser-visual{display:block;width:100%;height:auto;background:var(--surface);}
-  .teaser-visual .guide{fill:none;stroke:var(--border);stroke-width:1;}
-  .teaser-visual .thread{fill:none;stroke:var(--brand);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
-  .teaser-visual .pass-thread{fill:none;stroke:var(--confirmed);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
-  .teaser-visual .recur-thread{fill:none;stroke:var(--confirmed);stroke-width:2;stroke-dasharray:5 6;}
-  .teaser-visual .fail-thread{fill:none;stroke:var(--refuted);stroke-width:2;stroke-dasharray:4 5;}
-  .teaser-visual .model-disc{fill:var(--surface-2);stroke:var(--border-strong);stroke-width:1.4;}
-  .teaser-visual .model-disc.next{fill:var(--confirmed-soft);stroke:var(--confirmed);}
-  .teaser-visual .lab-shell{fill:var(--brand-soft);stroke:var(--brand);stroke-width:1.4;}
-  .teaser-visual .gate-line{stroke:var(--text-primary);stroke-width:3;stroke-linecap:round;}
-  .teaser-visual .gate-notch{fill:var(--surface);stroke:var(--text-primary);stroke-width:1.5;}
-  .teaser-visual .label{font-family:var(--font-mono);font-size:13px;letter-spacing:.07em;fill:var(--text-muted);}
-  .teaser-visual .title{font-family:var(--font-head);font-size:19px;font-weight:600;fill:var(--text-primary);}
-  .teaser-visual .micro{font-family:var(--font-body);font-size:16px;font-weight:600;fill:var(--text-primary);}
-  .teaser-visual .brand{fill:var(--brand);}.teaser-visual .ok{fill:var(--confirmed);}.teaser-visual .no{fill:var(--refuted);}
+  .teaser-visual{display:block;width:100%;height:auto;background:#fff;}
   .teaser figcaption{margin:0;padding:.75rem 1rem;border-top:1px solid var(--border);font-family:var(--font-mono);font-size:.65rem;color:var(--text-muted);max-width:none;}
   @media (max-width:960px){.teaser{max-width:680px;}}
   @media (max-width:520px){.teaser-head{font-size:.61rem;}.teaser figcaption{font-size:.6rem;}}
@@ -516,44 +502,9 @@
         </div>
 
         <figure class="teaser">
-          <div class="teaser-head"><span>the health signal that learns</span><span>evidence-gated</span></div>
-          <svg class="teaser-visual" viewBox="0 0 600 410" role="img" aria-labelledby="healthLoopTitle healthLoopDesc">
-            <title id="healthLoopTitle">A model-health signal transformed by evidence-gated auto-research</title>
-            <desc id="healthLoopDesc">A continuous health signal leaves Model n, passes through auto-research, and reaches a held-out gate. Failed interventions return to research without changing the model. Verified interventions produce Model n plus one, which becomes the next subject.</desc>
-            <defs>
-              <marker id="teaserPassArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--confirmed)"/></marker>
-              <marker id="teaserFailArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--refuted)"/></marker>
-            </defs>
-
-            <path class="recur-thread" marker-end="url(#teaserPassArrow)" d="M522 122C517 49 419 34 296 34S86 44 78 119"/>
-            <text class="label ok" x="300" y="26" text-anchor="middle">VERIFIED MODEL BECOMES THE NEXT SUBJECT ↺</text>
-
-            <circle class="model-disc" cx="84" cy="204" r="64"/>
-            <text class="label" x="84" y="176" text-anchor="middle">MODEL</text>
-            <text class="title" x="84" y="204" text-anchor="middle">n</text>
-            <path class="thread" d="M47 225h18l7-12 10 24 11-39 12 27h16"/>
-
-            <path class="thread" d="M148 204h15l8-12 10 26 12-45 11 31h11"/>
-            <rect class="lab-shell" x="211" y="125" width="184" height="158" rx="78"/>
-            <text class="label brand" x="303" y="168" text-anchor="middle">AUTO-RESEARCH</text>
-            <text class="micro" x="303" y="210" text-anchor="middle">Probe → Explain → Test</text>
-            <path class="thread" d="M395 204h30"/>
-
-            <text class="label" x="430" y="112" text-anchor="middle">HELD-OUT</text>
-            <line class="gate-line" x1="430" y1="128" x2="430" y2="280"/>
-            <rect class="gate-notch" x="419" y="191" width="22" height="26" rx="6"/>
-
-            <path class="pass-thread" marker-end="url(#teaserPassArrow)" d="M441 204h29"/>
-            <text class="label ok" x="456" y="185" text-anchor="middle">PASS</text>
-            <circle class="model-disc next" cx="526" cy="204" r="56"/>
-            <text class="label ok" x="526" y="180" text-anchor="middle">MODEL</text>
-            <text class="title" x="526" y="208" text-anchor="middle">n+1</text>
-            <path class="pass-thread" d="M494 226h12l6-10 9 19 10-32 10 23h14"/>
-
-            <path class="fail-thread" marker-end="url(#teaserFailArrow)" d="M430 280v53c0 28-34 38-70 38H275c-37 0-55-19-55-50v-27"/>
-            <text class="label no" x="326" y="352" text-anchor="middle">FAIL → REVISE · NO MODEL UPDATE</text>
-          </svg>
-          <figcaption>Propose freely. Update only on held-out evidence.</figcaption>
+          <div class="teaser-head"><span>from health signal to verified update</span><span>vector figure</span></div>
+          <img class="teaser-visual" src="assets/figures/model-health-teaser.svg" alt="A model-health signal enters auto-research. Failed interventions return for revision without updating the model; only a held-out pass produces Model n plus one, which recurs as the next research subject.">
+          <figcaption>One signal, one evidence gate, one accountable update path.</figcaption>
         </figure>
       </div>
     </section>
