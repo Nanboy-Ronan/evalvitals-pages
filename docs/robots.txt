@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nanboy-ronan.github.io/evalvitals-pages/sitemap.xml
