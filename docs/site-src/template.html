@@ -204,34 +204,97 @@
   .stage-open::after{content:"+";width:1.5rem;height:1.5rem;display:grid;place-items:center;border:1px solid var(--border-strong);border-radius:50%;font-size:1rem;line-height:1;}
   .stage-dossier[open] .stage-open::after{content:"−";}
   .stage-body{padding:1.35rem;border-top:1px dashed var(--border);background:var(--surface);}
-  .stage-body-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
-  .stage-fact{padding:1rem;background:var(--surface);min-width:0;}
-  .stage-fact .cap{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);margin-bottom:.5rem;}
-  .stage-fact p{font-size:.82rem;color:var(--text-secondary);line-height:1.55;}
-  .stage-fact code{font-size:.76rem;background:var(--surface-2);padding:.08rem .3rem;border-radius:4px;overflow-wrap:anywhere;}
+  .stage-story{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(220px,.7fr);gap:1rem;align-items:stretch;}
+  .stage-viz{min-height:220px;border:1px solid var(--border);border-radius:10px;background:var(--surface-2);padding:1rem;overflow:hidden;}
+  .viz-cap{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.09em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;display:flex;justify-content:space-between;gap:1rem;}
+  .viz-cap b{color:var(--brand);font-weight:500;}
+  .stage-notes{border:1px solid var(--border);border-radius:10px;background:var(--surface);overflow:hidden;}
+  .stage-note{padding:.9rem 1rem;}
+  .stage-note + .stage-note{border-top:1px dashed var(--border);}
+  .stage-note b{display:block;margin-bottom:.25rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);}
+  .stage-note span{display:block;font-size:.8rem;color:var(--text-secondary);line-height:1.45;}
+  .flow-row{display:flex;align-items:center;justify-content:center;gap:.55rem;min-height:145px;}
+  .flow-node{min-width:105px;padding:.75rem;border:1px solid var(--border-strong);border-radius:8px;background:var(--surface);text-align:center;}
+  .flow-node b{display:block;font-size:.78rem;}
+  .flow-node small{display:block;margin-top:.25rem;color:var(--text-muted);font-family:var(--font-mono);font-size:.62rem;}
+  .flow-node.accent{border-color:var(--brand);background:var(--brand-soft);}
+  .flow-arrow{color:var(--brand);font-family:var(--font-mono);font-size:1rem;}
+  .analyzer-stack{display:grid;gap:.35rem;min-width:130px;}
+  .analyzer-stack span{padding:.38rem .55rem;border:1px solid var(--border);border-radius:5px;background:var(--surface);font-family:var(--font-mono);font-size:.62rem;color:var(--text-secondary);}
+  .signal-matrix{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;width:112px;}
+  .signal-matrix i{height:18px;border-radius:2px;background:var(--surface-3);border:1px solid var(--border);}
+  .signal-matrix i.on{background:var(--brand);border-color:var(--brand);}
+  .forest-mini{display:grid;gap:.7rem;padding:.3rem 0;}
+  .forest-row{display:grid;grid-template-columns:5.4rem 1fr 4.4rem;gap:.7rem;align-items:center;}
+  .forest-row>span,.forest-row>em{font-family:var(--font-mono);font-size:.64rem;color:var(--text-muted);font-style:normal;}
+  .forest-row>em{text-align:right;}
+  .forest-track{position:relative;height:22px;background:linear-gradient(90deg,transparent 49.8%,var(--border-strong) 49.8%,var(--border-strong) 50.2%,transparent 50.2%);}
+  .forest-track i{position:absolute;left:var(--lo);right:calc(100% - var(--hi));top:10px;height:2px;background:var(--text-muted);}
+  .forest-track b{position:absolute;left:var(--dot);top:6px;width:9px;height:9px;margin-left:-4px;border-radius:50%;background:var(--surface);border:2px solid var(--text-muted);}
+  .forest-row.hit .forest-track i,.forest-row.hit .forest-track b{background:var(--brand);border-color:var(--brand);}
+  .forest-row.hit>em{color:var(--brand);}
+  .forest-axis{display:flex;justify-content:space-between;margin-left:6.1rem;color:var(--text-muted);font-family:var(--font-mono);font-size:.58rem;}
+  .hyp-lanes{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+  .hyp-lane{border:1px solid var(--border);border-radius:8px;background:var(--surface);padding:.8rem;}
+  .hyp-lane>span{font-family:var(--font-mono);font-size:.64rem;color:var(--brand);}
+  .hyp-chain{display:flex;align-items:center;gap:.4rem;margin-top:.7rem;}
+  .hyp-box{flex:1;min-height:62px;padding:.55rem;border-radius:6px;background:var(--surface-2);font-size:.72rem;color:var(--text-secondary);display:grid;place-items:center;text-align:center;}
+  .hyp-box:last-child{border:1px dashed var(--brand);background:var(--brand-soft);}
+  .split-flow{display:grid;grid-template-columns:1fr auto 1fr;gap:.7rem;align-items:center;}
+  .split-source{padding:1.1rem;border:1px solid var(--border-strong);border-radius:8px;background:var(--surface);text-align:center;}
+  .split-source b{font-family:var(--font-head);font-size:1.5rem;}
+  .split-source span{display:block;color:var(--text-muted);font-family:var(--font-mono);font-size:.63rem;}
+  .split-branches{display:grid;gap:.55rem;}
+  .split-branch{display:flex;justify-content:space-between;gap:1rem;padding:.65rem .75rem;border:1px solid var(--border);border-radius:6px;background:var(--surface);font-family:var(--font-mono);font-size:.65rem;}
+  .split-branch.sealed{border-color:var(--confirmed);background:var(--confirmed-soft);color:var(--confirmed);}
+  .verdict-mini{display:flex;height:48px;border-radius:7px;overflow:hidden;margin-top:1rem;color:var(--text-on-accent);font-family:var(--font-mono);font-size:.66rem;font-weight:600;}
+  .verdict-mini span{display:grid;place-items:center;text-align:center;}
+  .verdict-mini .yes{flex:1;background:var(--confirmed);}
+  .verdict-mini .no{flex:3;background:var(--refuted);}
+  .repair-viz{display:grid;grid-template-columns:.9fr 1.35fr;gap:1rem;}
+  .mini-ladder{display:grid;gap:.38rem;}
+  .mini-rung{display:grid;grid-template-columns:2rem 1fr auto;gap:.5rem;align-items:center;padding:.48rem .6rem;border:1px solid var(--border);border-radius:6px;background:var(--surface);font-size:.69rem;color:var(--text-secondary);}
+  .mini-rung b{font-family:var(--font-mono);color:var(--text-primary);}
+  .mini-rung em{font-family:var(--font-mono);font-size:.59rem;font-style:normal;color:var(--refuted);}
+  .mini-rung.next{border-color:var(--pending);background:var(--pending-soft);}
+  .mini-rung.next em{color:var(--pending);}
+  .freeze-flow{display:grid;grid-template-columns:1fr auto 1fr;gap:.45rem;align-items:center;}
+  .freeze-col{display:grid;gap:.38rem;}
+  .freeze-col span{padding:.45rem;border:1px solid var(--border);border-radius:5px;background:var(--surface);font-family:var(--font-mono);font-size:.61rem;text-align:center;color:var(--text-muted);}
+  .freeze-col span.chosen{color:var(--pending);border-color:var(--pending);background:var(--pending-soft);}
+  .paired-box{padding:.75rem;border:1px solid var(--pending);border-radius:7px;background:var(--pending-soft);text-align:center;}
+  .paired-box b{display:block;font-size:.75rem;}
+  .paired-box small{display:block;margin-top:.25rem;color:var(--text-muted);font-family:var(--font-mono);font-size:.6rem;}
   .stage-gate{display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start;margin-top:1rem;padding:.85rem 1rem;border-left:3px solid var(--brand);background:var(--brand-soft);}
   .stage-gate b{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:var(--brand);}
   .stage-gate p{font-size:.8rem;color:var(--text-secondary);}
   .stage-dossier.verify .stage-id{color:var(--confirmed);border-color:var(--confirmed);background:var(--confirmed-soft);}
-  .stage-dossier.verify .stage-fact .cap,.stage-dossier.verify .stage-open{color:var(--confirmed);}
+  .stage-dossier.verify .stage-note b,.stage-dossier.verify .stage-open{color:var(--confirmed);}
   .stage-dossier.verify .stage-gate{border-left-color:var(--confirmed);background:var(--confirmed-soft);}
   .stage-dossier.verify .stage-gate b{color:var(--confirmed);}
   .stage-dossier.repair .stage-id{color:var(--pending);border-color:var(--pending);background:var(--pending-soft);}
-  .stage-dossier.repair .stage-fact .cap,.stage-dossier.repair .stage-open{color:var(--pending);}
+  .stage-dossier.repair .stage-note b,.stage-dossier.repair .stage-open{color:var(--pending);}
   .stage-dossier.repair .stage-gate{border-left-color:var(--pending);background:var(--pending-soft);}
   .stage-dossier.repair .stage-gate b{color:var(--pending);}
   @media (max-width:820px){
     .stage-dossiers-head{align-items:start;flex-direction:column;gap:.45rem;}
     .stage-dossier summary{grid-template-columns:3rem 1fr auto;gap:.75rem;}
     .stage-purpose{grid-column:2 / -1;}
-    .stage-body-grid{grid-template-columns:1fr 1fr;}
+    .stage-story{grid-template-columns:1fr;}
   }
   @media (max-width:520px){
     .stage-dossier summary{padding:.9rem 1rem;}
     .stage-open{font-size:0;gap:0;}
     .stage-open::after{font-size:1rem;}
     .stage-body{padding:1rem;}
-    .stage-body-grid{grid-template-columns:1fr;}
+    .flow-row{display:grid;grid-template-columns:1fr;justify-items:stretch;gap:.45rem;padding-bottom:.4rem;}
+    .flow-row>.flow-node,.flow-row>.analyzer-stack{width:100%;min-width:0;}
+    .flow-row>.flow-arrow{text-align:center;transform:rotate(90deg);}
+    .flow-row>div:last-child{width:100%;}
+    .flow-row .signal-matrix{width:100%;}
+    .hyp-lanes,.repair-viz{grid-template-columns:1fr;}
+    .forest-row{grid-template-columns:4.2rem 1fr 3.6rem;gap:.4rem;}
+    .forest-axis{margin-left:4.6rem;}
     .stage-gate{grid-template-columns:1fr;gap:.35rem;}
   }
 
@@ -535,13 +598,24 @@
               <span class="stage-open">Stage details</span>
             </summary>
             <div class="stage-body">
-              <div class="stage-body-grid">
-                <div class="stage-fact"><div class="cap">Question</div><p>What does the model do differently on cases it gets right and wrong?</p></div>
-                <div class="stage-fact"><div class="cap">Inside the stage</div><p>Select modality-compatible analyzers, run behavioral checks, and record coverage and failures per case.</p></div>
-                <div class="stage-fact"><div class="cap">Artifact</div><p>A typed probe table: case IDs, analyzer findings, provenance, and any analyzers that could not run.</p></div>
-                <div class="stage-fact"><div class="cap">Hands to M2</div><p>Candidate signals with enough variation and coverage to compare against model outcomes.</p></div>
+              <div class="stage-story">
+                <div class="stage-viz" role="img" aria-label="M1 routes each case to compatible analyzers and assembles their outputs into a per-case signal matrix">
+                  <div class="viz-cap"><b>M1 · behavioral measurement</b><span>one row per case</span></div>
+                  <div class="flow-row">
+                    <div class="flow-node"><b>Case 001</b><small>prompt + media</small></div>
+                    <span class="flow-arrow">→</span>
+                    <div class="analyzer-stack"><span>consistency</span><span>coverage</span><span>confidence</span></div>
+                    <span class="flow-arrow">→</span>
+                    <div><div class="signal-matrix"><i class="on"></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i class="on"></i><i class="on"></i><i></i><i></i><i class="on"></i></div><div class="viz-cap" style="margin:.5rem 0 0;"><span>typed signal matrix</span></div></div>
+                  </div>
+                </div>
+                <div class="stage-notes">
+                  <div class="stage-note"><b>Input</b><span>Model runs + modality</span></div>
+                  <div class="stage-note"><b>Agent does</b><span>Route → probe → record coverage</span></div>
+                  <div class="stage-note"><b>Output</b><span>Per-case signals for M2</span></div>
+                </div>
               </div>
-              <div class="stage-gate"><b>Measurement boundary</b><p>M1 reports behavior, not causes. A missing or capped analyzer is recorded as missing evidence, never as a clean result.</p></div>
+              <div class="stage-gate"><b>Boundary</b><p>Behavior, not cause. Missing probes stay visibly missing.</p></div>
             </div>
           </details>
 
@@ -553,13 +627,24 @@
               <span class="stage-open">Stage details</span>
             </summary>
             <div class="stage-body">
-              <div class="stage-body-grid">
-                <div class="stage-fact"><div class="cap">Question</div><p>Which measured behaviors line up with failures strongly enough to investigate?</p></div>
-                <div class="stage-fact"><div class="cap">Inside the stage</div><p>Choose statistical tools, compare pass/fail groups, correct across the screened family, and render supporting figures.</p></div>
-                <div class="stage-fact"><div class="cap">Artifact</div><p>Effect sizes, intervals, corrected decisions, ranked findings, figures, tables, and the analysis code as executed.</p></div>
-                <div class="stage-fact"><div class="cap">Hands to M3</div><p>A short evidence chain: what was observed, how large it was, and what remains uncertain.</p></div>
+              <div class="stage-story">
+                <div class="stage-viz" role="img" aria-label="M2 forest view of four candidate behavioral signals; one survives discovery-time multiplicity correction">
+                  <div class="viz-cap"><b>M2 · effect + interval</b><span>discovery split</span></div>
+                  <div class="forest-mini">
+                    <div class="forest-row hit"><span>signal A</span><div class="forest-track" style="--lo:62%;--hi:89%;--dot:76%"><i></i><b></b></div><em>survives</em></div>
+                    <div class="forest-row"><span>signal B</span><div class="forest-track" style="--lo:38%;--hi:68%;--dot:54%"><i></i><b></b></div><em>screened</em></div>
+                    <div class="forest-row"><span>signal C</span><div class="forest-track" style="--lo:27%;--hi:58%;--dot:43%"><i></i><b></b></div><em>screened</em></div>
+                    <div class="forest-row"><span>signal D</span><div class="forest-track" style="--lo:45%;--hi:73%;--dot:59%"><i></i><b></b></div><em>screened</em></div>
+                  </div>
+                  <div class="forest-axis"><span>less failure</span><span>0</span><span>more failure</span></div>
+                </div>
+                <div class="stage-notes">
+                  <div class="stage-note"><b>Input</b><span>M1 signal matrix</span></div>
+                  <div class="stage-note"><b>Agent does</b><span>Test → correct → rank → plot</span></div>
+                  <div class="stage-note"><b>Output</b><span>Effects, intervals, evidence chain</span></div>
+                </div>
               </div>
-              <div class="stage-gate"><b>Exploration boundary</b><p>M2 works on the discovery split. Its survivors are leads, not verified mechanisms; held-out verdict language belongs to M5.</p></div>
+              <div class="stage-gate"><b>Boundary</b><p>Discovery-time survivors are leads. M5 owns the verdict.</p></div>
             </div>
           </details>
 
@@ -571,13 +656,21 @@
               <span class="stage-open">Stage details</span>
             </summary>
             <div class="stage-body">
-              <div class="stage-body-grid">
-                <div class="stage-fact"><div class="cap">Question</div><p>What mechanism could produce this pattern, and what observation would prove it wrong?</p></div>
-                <div class="stage-fact"><div class="cap">Inside the stage</div><p>Read the evidence chain, propose competing explanations, specify an expected direction, and preregister a test design.</p></div>
-                <div class="stage-fact"><div class="cap">Artifact</div><p>Named hypotheses with statements, failure modes, testable predictions, required signals, and test designs.</p></div>
-                <div class="stage-fact"><div class="cap">Hands to M5</div><p>Frozen hypotheses and adjudication plans—before any held-out outcome is inspected.</p></div>
+              <div class="stage-story">
+                <div class="stage-viz" role="img" aria-label="M3 turns an observed pattern into competing mechanisms, each paired with an explicit falsifier">
+                  <div class="viz-cap"><b>M3 · two falsifiable hypotheses</b><span>pattern → mechanism → falsifier</span></div>
+                  <div class="hyp-lanes">
+                    <div class="hyp-lane"><span>H1</span><div class="hyp-chain"><div class="hyp-box">observed<br>pattern</div><span class="flow-arrow">→</span><div class="hyp-box">mechanism A</div><span class="flow-arrow">→</span><div class="hyp-box">test that can fail</div></div></div>
+                    <div class="hyp-lane"><span>H2</span><div class="hyp-chain"><div class="hyp-box">same<br>evidence</div><span class="flow-arrow">→</span><div class="hyp-box">mechanism B</div><span class="flow-arrow">→</span><div class="hyp-box">competing test</div></div></div>
+                  </div>
+                </div>
+                <div class="stage-notes">
+                  <div class="stage-note"><b>Input</b><span>M2 evidence chain</span></div>
+                  <div class="stage-note"><b>Agent does</b><span>Explain → compete → preregister</span></div>
+                  <div class="stage-note"><b>Output</b><span>Frozen hypotheses + test plans</span></div>
+                </div>
               </div>
-              <div class="stage-gate"><b>Falsifiability gate</b><p>An explanation without a test design remains a proposal. Fluency and plausibility do not advance it to repair.</p></div>
+              <div class="stage-gate"><b>Gate</b><p>No falsifier, no advancement—plausibility alone is not evidence.</p></div>
             </div>
           </details>
 
@@ -589,13 +682,23 @@
               <span class="stage-open">Stage details</span>
             </summary>
             <div class="stage-body">
-              <div class="stage-body-grid">
-                <div class="stage-fact"><div class="cap">Question</div><p>Does the predicted relationship appear on cases untouched by exploration and diagnosis?</p></div>
-                <div class="stage-fact"><div class="cap">Inside the stage</div><p>Run the preregistered test on the reserved split, account for multiplicity, and audit protocol consistency and power.</p></div>
-                <div class="stage-fact"><div class="cap">Artifact</div><p>A verdict for each hypothesis—supported, refuted, or inconclusive—with effect, interval, test, and evidence grade.</p></div>
-                <div class="stage-fact"><div class="cap">Route</div><p>Supported mechanisms may enter M4. Refuted ones return the loop to M1; inconclusive ones remain unresolved.</p></div>
+              <div class="stage-story">
+                <div class="stage-viz" role="img" aria-label="The committed example splits 606 cases before exploration into 364 discovery and 242 sealed cases; held-out adjudication confirms one of four candidate signals and refutes three">
+                  <div class="viz-cap"><b>M5 · held-out adjudication</b><span>committed example</span></div>
+                  <div class="split-flow">
+                    <div class="split-source"><b>606</b><span>cases split first</span></div>
+                    <span class="flow-arrow">→</span>
+                    <div class="split-branches"><div class="split-branch"><span>DISCOVERY</span><b>364</b></div><div class="split-branch sealed"><span>SEALED</span><b>242</b></div></div>
+                  </div>
+                  <div class="verdict-mini"><span class="yes">✓ 1 confirmed</span><span class="no">× 3 refuted</span></div>
+                </div>
+                <div class="stage-notes">
+                  <div class="stage-note"><b>Input</b><span>Frozen H1/H2 + sealed cases</span></div>
+                  <div class="stage-note"><b>Agent does</b><span>Run test → correct → grade</span></div>
+                  <div class="stage-note"><b>Output</b><span>Supported / refuted / inconclusive</span></div>
+                </div>
               </div>
-              <div class="stage-gate"><b>Evidence gate</b><p>Only M5 may turn a discovery-time pattern into a held-out verdict. “Inconclusive” is preserved rather than forced into yes or no.</p></div>
+              <div class="stage-gate"><b>Gate</b><p>Only untouched evidence can promote a pattern to a verdict.</p></div>
             </div>
           </details>
 
@@ -607,13 +710,21 @@
               <span class="stage-open">Stage details</span>
             </summary>
             <div class="stage-body">
-              <div class="stage-body-grid">
-                <div class="stage-fact"><div class="cap">Question</div><p>Can an intervention aimed at the verified mechanism beat the unchanged baseline without unacceptable regressions?</p></div>
-                <div class="stage-fact"><div class="cap">Inside the stage</div><p>Generate candidates at the current tier, select on discovery data, freeze one winner, and re-test it on held-out pairs.</p></div>
-                <div class="stage-fact"><div class="cap">Artifact</div><p>Every attempted candidate, its tier and effect, the selected repair, paired outcomes, regressions, and the final recipe.</p></div>
-                <div class="stage-fact"><div class="cap">Route</div><p>A validated winner ships with evidence. If none beats baseline, escalate one tier or stop at the declared ceiling.</p></div>
+              <div class="stage-story">
+                <div class="stage-viz" role="img" aria-label="M4 tries progressively deeper repair tiers; within a tier it selects candidates on discovery data, freezes one winner, and compares it with the baseline on paired held-out cases">
+                  <div class="viz-cap"><b>M4 · search, freeze, re-test</b><span>cheapest tier first</span></div>
+                  <div class="repair-viz">
+                    <div class="mini-ladder"><div class="mini-rung"><b>L1</b><span>prompt</span><em>flat</em></div><div class="mini-rung"><b>L2</b><span>scaffold</span><em>flat</em></div><div class="mini-rung"><b>L3b</b><span>internals</span><em>flat</em></div><div class="mini-rung next"><b>L4</b><span>parameters</span><em>next ↑</em></div></div>
+                    <div class="freeze-flow"><div class="freeze-col"><span>candidate A</span><span class="chosen">winner B</span><span>candidate C</span></div><span class="flow-arrow">→</span><div class="paired-box"><b>freeze B</b><small>held-out pairs<br>B vs baseline</small></div></div>
+                  </div>
+                </div>
+                <div class="stage-notes">
+                  <div class="stage-note"><b>Input</b><span>Verified mechanism + tier ceiling</span></div>
+                  <div class="stage-note"><b>Agent does</b><span>Generate → select → freeze → re-test</span></div>
+                  <div class="stage-note"><b>Output</b><span>Validated fix or escalation</span></div>
+                </div>
               </div>
-              <div class="stage-gate"><b>Repair gate</b><p>Winning during search is not confirmation. The frozen winner must improve on untouched paired cases before the run calls it a fix.</p></div>
+              <div class="stage-gate"><b>Gate</b><p>Search winner ≠ fix. It must beat baseline on untouched pairs.</p></div>
             </div>
           </details>
         </div>
