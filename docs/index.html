@@ -203,6 +203,60 @@
   svg.diagram .note-back{fill:var(--refuted);}
   figcaption{margin-top:1rem;font-size:.82rem;color:var(--text-muted);max-width:70ch;}
 
+  /* ============ STAGE DOSSIERS ============
+     The loop diagram is the index; these native disclosure rows are the next
+     reading depth. Native <details> keeps every stage usable without JS and
+     lets a reader open several stages side-by-side conceptually without a
+     tab control hiding the others. */
+  .stage-dossiers{margin-top:2.4rem;border:1px solid var(--border);border-radius:14px;background:var(--surface);overflow:hidden;box-shadow:var(--shadow);}
+  .stage-dossiers-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;padding:1.2rem 1.35rem;background:var(--surface-2);border-bottom:1px solid var(--border);}
+  .stage-dossiers-head h3{font-family:var(--font-head);font-size:1.1rem;}
+  .stage-dossiers-head p{max-width:52ch;color:var(--text-muted);font-size:.8rem;}
+  .stage-dossier + .stage-dossier{border-top:1px solid var(--border);}
+  .stage-dossier summary{display:grid;grid-template-columns:3.3rem minmax(130px,.72fr) minmax(220px,1.6fr) auto;gap:1rem;align-items:center;padding:1rem 1.35rem;cursor:pointer;list-style:none;transition:background .15s;}
+  .stage-dossier summary::-webkit-details-marker{display:none;}
+  .stage-dossier summary:hover{background:var(--brand-soft);}
+  .stage-dossier[open] summary{background:var(--brand-soft);}
+  .stage-id{width:2.45rem;height:2.45rem;display:grid;place-items:center;border:1px solid var(--brand);border-radius:8px;background:var(--brand-soft);color:var(--brand);font-family:var(--font-mono);font-size:.78rem;font-weight:600;}
+  .stage-name{display:grid;gap:.12rem;}
+  .stage-name b{font-family:var(--font-head);font-size:1rem;}
+  .stage-name span,.stage-purpose{color:var(--text-muted);font-family:var(--font-mono);font-size:.7rem;}
+  .stage-purpose{font-family:var(--font-body);font-size:.86rem;color:var(--text-secondary);}
+  .stage-open{display:flex;align-items:center;gap:.45rem;color:var(--brand);font-family:var(--font-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;}
+  .stage-open::after{content:"+";width:1.5rem;height:1.5rem;display:grid;place-items:center;border:1px solid var(--border-strong);border-radius:50%;font-size:1rem;line-height:1;}
+  .stage-dossier[open] .stage-open::after{content:"−";}
+  .stage-body{padding:1.35rem;border-top:1px dashed var(--border);background:var(--surface);}
+  .stage-body-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+  .stage-fact{padding:1rem;background:var(--surface);min-width:0;}
+  .stage-fact .cap{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);margin-bottom:.5rem;}
+  .stage-fact p{font-size:.82rem;color:var(--text-secondary);line-height:1.55;}
+  .stage-fact code{font-size:.76rem;background:var(--surface-2);padding:.08rem .3rem;border-radius:4px;overflow-wrap:anywhere;}
+  .stage-gate{display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start;margin-top:1rem;padding:.85rem 1rem;border-left:3px solid var(--brand);background:var(--brand-soft);}
+  .stage-gate b{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:var(--brand);}
+  .stage-gate p{font-size:.8rem;color:var(--text-secondary);}
+  .stage-dossier.verify .stage-id{color:var(--confirmed);border-color:var(--confirmed);background:var(--confirmed-soft);}
+  .stage-dossier.verify .stage-fact .cap,.stage-dossier.verify .stage-open{color:var(--confirmed);}
+  .stage-dossier.verify .stage-gate{border-left-color:var(--confirmed);background:var(--confirmed-soft);}
+  .stage-dossier.verify .stage-gate b{color:var(--confirmed);}
+  .stage-dossier.repair .stage-id{color:var(--pending);border-color:var(--pending);background:var(--pending-soft);}
+  .stage-dossier.repair .stage-fact .cap,.stage-dossier.repair .stage-open{color:var(--pending);}
+  .stage-dossier.repair .stage-gate{border-left-color:var(--pending);background:var(--pending-soft);}
+  .stage-dossier.repair .stage-gate b{color:var(--pending);}
+  @media (max-width:820px){
+    .stage-dossiers-head{align-items:start;flex-direction:column;gap:.45rem;}
+    .stage-dossier summary{grid-template-columns:3rem 1fr auto;gap:.75rem;}
+    .stage-purpose{grid-column:2 / -1;}
+    .stage-body-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:520px){
+    .stage-dossier summary{padding:.9rem 1rem;}
+    .stage-open{font-size:0;gap:0;}
+    .stage-open::after{font-size:1rem;}
+    .stage-body{padding:1rem;}
+    .stage-body-grid{grid-template-columns:1fr;}
+    .stage-gate{grid-template-columns:1fr;gap:.35rem;}
+  }
+
   .io{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.2rem;}
   @media (max-width:760px){ .io{grid-template-columns:1fr;} }
   .io > div{border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:1.2rem 1.3rem;}
@@ -487,6 +541,103 @@
             </g>
           </svg>
           <figcaption>The held-out split is taken before Explore runs, so Verify always scores on rows the analysis never touched.</figcaption>
+        </div>
+
+        <div class="stage-dossiers">
+          <div class="stage-dossiers-head">
+            <h3>Open the loop.</h3>
+            <p>Each row expands one stage from its question to the artifact handed forward. The gate is what prevents a plausible story from silently becoming a fix.</p>
+          </div>
+
+          <details class="stage-dossier" open>
+            <summary>
+              <span class="stage-id">M1</span>
+              <span class="stage-name"><b>Probe</b><span>measure behavior</span></span>
+              <span class="stage-purpose">Turn model runs into per-case behavioral signals.</span>
+              <span class="stage-open">Stage details</span>
+            </summary>
+            <div class="stage-body">
+              <div class="stage-body-grid">
+                <div class="stage-fact"><div class="cap">Question</div><p>What does the model do differently on cases it gets right and wrong?</p></div>
+                <div class="stage-fact"><div class="cap">Inside the stage</div><p>Select modality-compatible analyzers, run behavioral checks, and record coverage and failures per case.</p></div>
+                <div class="stage-fact"><div class="cap">Artifact</div><p>A typed probe table: case IDs, analyzer findings, provenance, and any analyzers that could not run.</p></div>
+                <div class="stage-fact"><div class="cap">Hands to M2</div><p>Candidate signals with enough variation and coverage to compare against model outcomes.</p></div>
+              </div>
+              <div class="stage-gate"><b>Measurement boundary</b><p>M1 reports behavior, not causes. A missing or capped analyzer is recorded as missing evidence, never as a clean result.</p></div>
+            </div>
+          </details>
+
+          <details class="stage-dossier">
+            <summary>
+              <span class="stage-id">M2</span>
+              <span class="stage-name"><b>Explore</b><span>find structure</span></span>
+              <span class="stage-purpose">Screen measured signals and expose patterns worth explaining.</span>
+              <span class="stage-open">Stage details</span>
+            </summary>
+            <div class="stage-body">
+              <div class="stage-body-grid">
+                <div class="stage-fact"><div class="cap">Question</div><p>Which measured behaviors line up with failures strongly enough to investigate?</p></div>
+                <div class="stage-fact"><div class="cap">Inside the stage</div><p>Choose statistical tools, compare pass/fail groups, correct across the screened family, and render supporting figures.</p></div>
+                <div class="stage-fact"><div class="cap">Artifact</div><p>Effect sizes, intervals, corrected decisions, ranked findings, figures, tables, and the analysis code as executed.</p></div>
+                <div class="stage-fact"><div class="cap">Hands to M3</div><p>A short evidence chain: what was observed, how large it was, and what remains uncertain.</p></div>
+              </div>
+              <div class="stage-gate"><b>Exploration boundary</b><p>M2 works on the discovery split. Its survivors are leads, not verified mechanisms; held-out verdict language belongs to M5.</p></div>
+            </div>
+          </details>
+
+          <details class="stage-dossier">
+            <summary>
+              <span class="stage-id">M3</span>
+              <span class="stage-name"><b>Diagnose</b><span>form mechanisms</span></span>
+              <span class="stage-purpose">Convert patterns into falsifiable explanations.</span>
+              <span class="stage-open">Stage details</span>
+            </summary>
+            <div class="stage-body">
+              <div class="stage-body-grid">
+                <div class="stage-fact"><div class="cap">Question</div><p>What mechanism could produce this pattern, and what observation would prove it wrong?</p></div>
+                <div class="stage-fact"><div class="cap">Inside the stage</div><p>Read the evidence chain, propose competing explanations, specify an expected direction, and preregister a test design.</p></div>
+                <div class="stage-fact"><div class="cap">Artifact</div><p>Named hypotheses with statements, failure modes, testable predictions, required signals, and test designs.</p></div>
+                <div class="stage-fact"><div class="cap">Hands to M5</div><p>Frozen hypotheses and adjudication plans—before any held-out outcome is inspected.</p></div>
+              </div>
+              <div class="stage-gate"><b>Falsifiability gate</b><p>An explanation without a test design remains a proposal. Fluency and plausibility do not advance it to repair.</p></div>
+            </div>
+          </details>
+
+          <details class="stage-dossier verify">
+            <summary>
+              <span class="stage-id">M5</span>
+              <span class="stage-name"><b>Verify</b><span>held-out adjudication</span></span>
+              <span class="stage-purpose">Decide which frozen explanations survive new evidence.</span>
+              <span class="stage-open">Stage details</span>
+            </summary>
+            <div class="stage-body">
+              <div class="stage-body-grid">
+                <div class="stage-fact"><div class="cap">Question</div><p>Does the predicted relationship appear on cases untouched by exploration and diagnosis?</p></div>
+                <div class="stage-fact"><div class="cap">Inside the stage</div><p>Run the preregistered test on the reserved split, account for multiplicity, and audit protocol consistency and power.</p></div>
+                <div class="stage-fact"><div class="cap">Artifact</div><p>A verdict for each hypothesis—supported, refuted, or inconclusive—with effect, interval, test, and evidence grade.</p></div>
+                <div class="stage-fact"><div class="cap">Route</div><p>Supported mechanisms may enter M4. Refuted ones return the loop to M1; inconclusive ones remain unresolved.</p></div>
+              </div>
+              <div class="stage-gate"><b>Evidence gate</b><p>Only M5 may turn a discovery-time pattern into a held-out verdict. “Inconclusive” is preserved rather than forced into yes or no.</p></div>
+            </div>
+          </details>
+
+          <details class="stage-dossier repair">
+            <summary>
+              <span class="stage-id">M4</span>
+              <span class="stage-name"><b>Repair</b><span>intervene and compare</span></span>
+              <span class="stage-purpose">Climb from the cheapest intervention to the allowed ceiling.</span>
+              <span class="stage-open">Stage details</span>
+            </summary>
+            <div class="stage-body">
+              <div class="stage-body-grid">
+                <div class="stage-fact"><div class="cap">Question</div><p>Can an intervention aimed at the verified mechanism beat the unchanged baseline without unacceptable regressions?</p></div>
+                <div class="stage-fact"><div class="cap">Inside the stage</div><p>Generate candidates at the current tier, select on discovery data, freeze one winner, and re-test it on held-out pairs.</p></div>
+                <div class="stage-fact"><div class="cap">Artifact</div><p>Every attempted candidate, its tier and effect, the selected repair, paired outcomes, regressions, and the final recipe.</p></div>
+                <div class="stage-fact"><div class="cap">Route</div><p>A validated winner ships with evidence. If none beats baseline, escalate one tier or stop at the declared ceiling.</p></div>
+              </div>
+              <div class="stage-gate"><b>Repair gate</b><p>Winning during search is not confirmation. The frozen winner must improve on untouched paired cases before the run calls it a fix.</p></div>
+            </div>
+          </details>
         </div>
 
         <div class="io">
