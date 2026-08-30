@@ -167,38 +167,33 @@
   .hero-lead{margin-top:1.25rem;max-width:56ch;font-size:1.06rem;color:var(--text-secondary);}
   .hero-meta{margin-top:1.4rem;font-family:var(--font-mono);font-size:.78rem;color:var(--text-muted);}
 
-  /* ============ HERO TEASER ============
-     A graphical abstract, not a second process diagram: the left side is the
-     autonomous research loop around model health; the right side is the only
-     recursion we claim—verified repairs become the next model under study. */
+  /* ============ HERO TEASER ============ */
   .teaser{margin:0;border:1px solid var(--border);border-radius:16px;background:var(--surface);box-shadow:var(--shadow);overflow:hidden;}
   .teaser-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 1rem;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);}
   .teaser-head span:first-child{color:var(--brand);}
-  .teaser svg{width:100%;height:auto;background:var(--surface);}
-  .teaser .grid{stroke:var(--grid-line);stroke-width:1;opacity:.55;}
-  .teaser .orbit{fill:none;stroke:var(--border-strong);stroke-width:1.5;stroke-dasharray:4 5;}
-  .teaser .loop-arrow{fill:none;stroke:var(--brand);stroke-width:1.6;marker-end:url(#teaser-arrow);}
-  .teaser .recur-arrow{fill:none;stroke:var(--confirmed);stroke-width:1.7;stroke-dasharray:5 4;marker-end:url(#teaser-arrow-green);}
-  .teaser .reject-arrow{fill:none;stroke:var(--refuted);stroke-width:1.3;stroke-dasharray:3 4;}
-  .teaser .node{fill:var(--surface);stroke:var(--border-strong);stroke-width:1.2;}
-  .teaser .node-key{fill:var(--brand-soft);stroke:var(--brand);stroke-width:1.3;}
-  .teaser .node-ok{fill:var(--confirmed-soft);stroke:var(--confirmed);stroke-width:1.3;}
-  .teaser .ring{fill:var(--surface);stroke:var(--brand);stroke-width:1.6;}
-  .teaser .ring-soft{fill:none;stroke:var(--brand);stroke-width:8;opacity:.1;}
-  .teaser .pulse-line{fill:none;stroke:var(--brand);stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round;}
-  .teaser .t-label{font-family:var(--font-body);font-size:12px;font-weight:600;fill:var(--text-primary);}
-  .teaser .t-small{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.05em;fill:var(--text-muted);}
-  .teaser .t-brand{fill:var(--brand);}
-  .teaser .t-ok{fill:var(--confirmed);}
-  .teaser .t-no{fill:var(--refuted);}
-  .teaser .health-step{fill:var(--brand-soft);stroke:var(--brand);stroke-width:1;}
-  .teaser .health-step.ok{fill:var(--confirmed-soft);stroke:var(--confirmed);}
-  .teaser-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-top:1px solid var(--border);}
-  .teaser-proof div{background:var(--surface-2);padding:.72rem .8rem;display:grid;gap:.15rem;}
-  .teaser-proof b{font-family:var(--font-head);font-size:1rem;}
-  .teaser-proof span{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.05em;text-transform:uppercase;color:var(--text-muted);}
+  .teaser-body{padding:1.2rem;}
+  .teaser-step{display:grid;grid-template-columns:2rem minmax(0,1fr) auto;gap:.85rem;align-items:center;padding:.9rem 1rem;border:1px solid var(--border);border-radius:10px;background:var(--surface-2);}
+  .teaser-step.research{border-color:var(--brand);background:var(--brand-soft);}
+  .teaser-step.gate{border-color:var(--border-strong);background:var(--surface);}
+  .teaser-num{font-family:var(--font-mono);font-size:.65rem;color:var(--text-muted);}
+  .teaser-copy{display:grid;gap:.18rem;}
+  .teaser-copy small{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.06em;color:var(--text-muted);}
+  .teaser-copy b{font-family:var(--font-head);font-size:.95rem;line-height:1.25;}
+  .teaser-step.research .teaser-copy small,.teaser-step.research .teaser-num{color:var(--brand);}
+  .mini-pulse{width:72px;height:24px;}
+  .mini-pulse path{fill:none;stroke:var(--brand);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+  .teaser-down{height:1.45rem;display:grid;place-items:center;color:var(--text-muted);font-size:1rem;line-height:1;}
+  .teaser-outcomes{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-top:.65rem;}
+  .teaser-outcome{padding:.8rem .85rem;border-radius:10px;border:1px solid;font-size:.78rem;line-height:1.4;}
+  .teaser-outcome span{display:block;margin-bottom:.14rem;font-family:var(--font-mono);font-size:.61rem;letter-spacing:.05em;text-transform:uppercase;}
+  .teaser-outcome.fail{border-color:color-mix(in srgb,var(--refuted) 35%,var(--border));background:var(--surface-2);color:var(--text-secondary);}
+  .teaser-outcome.fail span{color:var(--refuted);}
+  .teaser-outcome.pass{border-color:var(--confirmed);background:var(--confirmed-soft);color:var(--text-primary);}
+  .teaser-outcome.pass span{color:var(--confirmed);}
+  .teaser-recur{margin-top:.65rem;padding:.65rem .8rem;border-radius:8px;background:var(--text-primary);color:var(--surface);font-family:var(--font-mono);font-size:.66rem;text-align:center;letter-spacing:.02em;}
   .teaser figcaption{margin:0;padding:.75rem 1rem;border-top:1px solid var(--border);font-family:var(--font-mono);font-size:.65rem;color:var(--text-muted);max-width:none;}
-  @media (max-width:960px){.teaser{max-width:680px;}.teaser-proof div{padding:.65rem;}}
+  @media (max-width:960px){.teaser{max-width:680px;}}
+  @media (max-width:520px){.teaser-body{padding:.9rem;}.teaser-step{grid-template-columns:1.6rem minmax(0,1fr);}.mini-pulse{display:none;}.teaser-outcomes{grid-template-columns:1fr;}}
 
   .loop-card{border:1px solid var(--border);border-radius:14px;background:var(--surface);box-shadow:var(--shadow);overflow:hidden;}
   .loop-card-head{display:flex;justify-content:space-between;align-items:center;padding:.7rem 1rem;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-size:.72rem;color:var(--text-muted);letter-spacing:.04em;}
@@ -526,58 +521,30 @@
         </div>
 
         <figure class="teaser">
-          <div class="teaser-head"><span>recursive model health</span><span>auto-research · evidence gated</span></div>
-          <svg viewBox="0 0 660 430" role="img" aria-labelledby="teaserTitle teaserDesc">
-            <title id="teaserTitle">Recursive model-health improvement through autonomous research</title>
-            <desc id="teaserDesc">An autonomous loop measures model health, forms hypotheses, runs experiments, verifies them on held-out data, and proposes repairs. Only verified repairs produce the next model version, which re-enters the loop.</desc>
-            <defs>
-              <pattern id="teaser-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path class="grid" d="M 24 0 L 0 0 0 24" fill="none"/></pattern>
-              <marker id="teaser-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--brand)"/></marker>
-              <marker id="teaser-arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--confirmed)"/></marker>
-            </defs>
-            <rect width="660" height="430" fill="url(#teaser-grid)"/>
-
-            <text class="t-small t-brand" x="28" y="31">AUTONOMOUS RESEARCH ENGINE</text>
-            <circle class="orbit" cx="220" cy="216" r="142"/>
-            <path class="loop-arrow" d="M220 73 A143 143 0 0 1 354 166"/>
-            <path class="loop-arrow" d="M362 218 A143 143 0 0 1 263 351"/>
-            <path class="loop-arrow" d="M185 354 A143 143 0 0 1 82 244"/>
-            <path class="loop-arrow" d="M85 175 A143 143 0 0 1 186 78"/>
-
-            <rect class="node" x="163" y="51" width="114" height="45" rx="8"/>
-            <text class="t-label" x="220" y="72" text-anchor="middle">Observe</text><text class="t-small" x="220" y="86" text-anchor="middle">probe failures</text>
-            <rect class="node" x="330" y="168" width="118" height="48" rx="8"/>
-            <text class="t-label" x="389" y="190" text-anchor="middle">Hypothesize</text><text class="t-small" x="389" y="204" text-anchor="middle">mechanisms</text>
-            <rect class="node-key" x="246" y="335" width="116" height="48" rx="8"/>
-            <text class="t-label" x="304" y="357" text-anchor="middle">Experiment</text><text class="t-small t-brand" x="304" y="371" text-anchor="middle">intervene</text>
-            <rect class="node-ok" x="27" y="195" width="112" height="48" rx="8"/>
-            <text class="t-label" x="83" y="217" text-anchor="middle">Verify</text><text class="t-small t-ok" x="83" y="231" text-anchor="middle">held-out gate</text>
-
-            <circle class="ring-soft" cx="220" cy="216" r="75"/><circle class="ring" cx="220" cy="216" r="67"/>
-            <text class="t-small t-brand" x="220" y="188" text-anchor="middle">MODEL HEALTH</text>
-            <path class="pulse-line" d="M174 220 L190 220 L199 204 L211 238 L223 190 L235 220 L247 220 L255 209 L266 220"/>
-            <text class="t-label" x="220" y="257" text-anchor="middle">model v<tspan baseline-shift="sub" font-size="8">n</tspan></text>
-
-            <path class="recur-arrow" d="M139 219 C468 219 432 309 492 309"/>
-            <text class="t-small t-ok" x="383" y="240" text-anchor="middle">VERIFIED REPAIR ONLY</text>
-
-            <text class="t-small" x="492" y="31">RECURSIVE IMPROVEMENT</text>
-            <rect class="health-step" x="474" y="269" width="52" height="72" rx="7"/>
-            <text class="t-small" x="500" y="326" text-anchor="middle">v0</text>
-            <rect class="health-step" x="532" y="217" width="52" height="124" rx="7"/>
-            <text class="t-small" x="558" y="326" text-anchor="middle">v1</text>
-            <rect class="health-step ok" x="590" y="151" width="52" height="190" rx="7"/>
-            <text class="t-small t-ok" x="616" y="326" text-anchor="middle">v(n+1)</text>
-            <path class="recur-arrow" d="M500 258 L558 205 L616 139"/>
-            <circle cx="500" cy="258" r="4" fill="var(--brand)"/><circle cx="558" cy="205" r="4" fill="var(--brand)"/><circle cx="616" cy="139" r="5" fill="var(--confirmed)"/>
-            <path class="reject-arrow" d="M530 113 C556 91 582 91 604 112"/>
-            <text class="t-small t-no" x="568" y="80" text-anchor="middle">× rejected candidates</text>
-            <path class="recur-arrow" d="M621 131 C643 76 586 47 424 64 C350 72 316 99 303 126"/>
-            <text class="t-small t-ok" x="486" y="55" text-anchor="middle">next subject ↺</text>
-            <text class="t-small" x="558" y="373" text-anchor="middle">health changes only after verification</text>
-          </svg>
-          <div class="teaser-proof"><div><b>606</b><span>cases observed</span></div><div><b>4 → 1</b><span>signals → confirmed</span></div><div><b>↺</b><span>verified update recurs</span></div></div>
-          <figcaption>Auto-research proposes. Held-out evidence decides. The updated model re-enters the lab.</figcaption>
+          <div class="teaser-head"><span>model health, recursively</span><span>evidence-gated</span></div>
+          <div class="teaser-body" role="img" aria-label="Model n is studied by auto-research and evaluated at a held-out gate. Failed ideas are revised without updating the model. Verified ideas produce Model n plus one, which becomes the next subject.">
+            <div class="teaser-step">
+              <span class="teaser-num">01</span>
+              <span class="teaser-copy"><small>MODEL n</small><b>Measure model health</b></span>
+              <svg class="mini-pulse" viewBox="0 0 72 24" aria-hidden="true"><path d="M1 13h14l5-8 7 15 8-19 7 12h9l5-6 6 6h9"/></svg>
+            </div>
+            <div class="teaser-down" aria-hidden="true">↓</div>
+            <div class="teaser-step research">
+              <span class="teaser-num">02</span>
+              <span class="teaser-copy"><small>AUTO-RESEARCH</small><b>Probe → Diagnose → Intervene</b></span>
+            </div>
+            <div class="teaser-down" aria-hidden="true">↓</div>
+            <div class="teaser-step gate">
+              <span class="teaser-num">03</span>
+              <span class="teaser-copy"><small>HELD-OUT GATE</small><b>Did the intervention hold?</b></span>
+            </div>
+            <div class="teaser-outcomes">
+              <div class="teaser-outcome fail"><span>× No</span>Revise. No model update.</div>
+              <div class="teaser-outcome pass"><span>✓ Yes</span><b>MODEL n+1</b></div>
+            </div>
+            <div class="teaser-recur">↺ verified model becomes the next subject</div>
+          </div>
+          <figcaption>Propose freely. Update only on held-out evidence.</figcaption>
         </figure>
       </div>
     </section>
