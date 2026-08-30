@@ -27,6 +27,12 @@
     --pending:#8a5e0b;       /* inconclusive / escalate / in progress */
     --pending-soft:#8a5e0b17;
 
+    /* Ordinal ramp — single hue (brand), monotone lightness — for "position in
+       an ordered sequence" charts (repair-tier depth). Validated with
+       scripts/validate_palette.js --ordinal: monotone L, adjacent ΔL >= 0.06,
+       light end >= 2:1 on --surface. Do not eyeball a replacement; re-run it. */
+    --ramp-1:#85b6b6; --ramp-2:#67a4a4; --ramp-3:#489393; --ramp-4:#2a8181; --ramp-5:#0b6e6e;
+
     --grid-line:#d6dbd8;
     --shadow:0 20px 50px -30px rgba(14,22,20,.35);
     --font-display:'Fraunces Hero', ui-serif, Georgia, serif;
@@ -45,6 +51,7 @@
       --confirmed:#4fbe73; --confirmed-soft:#4fbe731f;
       --refuted:#e0725f; --refuted-soft:#e0725f1f;
       --pending:#d2a03a; --pending-soft:#d2a03a1f;
+      --ramp-1:#315754; --ramp-2:#386d6b; --ramp-3:#408482; --ramp-4:#479b9b; --ramp-5:#4fb3b3;
       --grid-line:#1c2622; --shadow:0 20px 60px -25px rgba(0,0,0,.6);
     }
   }
@@ -57,6 +64,7 @@
     --confirmed:#4fbe73; --confirmed-soft:#4fbe731f;
     --refuted:#e0725f; --refuted-soft:#e0725f1f;
     --pending:#d2a03a; --pending-soft:#d2a03a1f;
+    --ramp-1:#315754; --ramp-2:#386d6b; --ramp-3:#408482; --ramp-4:#479b9b; --ramp-5:#4fb3b3;
     --grid-line:#1c2622; --shadow:0 20px 60px -25px rgba(0,0,0,.6);
   }
 
@@ -150,6 +158,14 @@
   .loop-card-foot .ok{color:var(--confirmed);}
   .loop-card-foot .no{color:var(--refuted);}
 
+  /* ============ KPI ROW (stat tiles) ============ */
+  .kpi-band{padding-block:2.2rem;border-top:1px solid var(--border);}
+  .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+  .kpi{background:var(--surface);padding:1.3rem 1.2rem;}
+  .kpi .n{font-family:var(--font-head);font-weight:600;font-size:2rem;letter-spacing:-.02em;color:var(--text-primary);}
+  .kpi .l{margin-top:.3rem;font-family:var(--font-mono);font-size:.72rem;color:var(--text-muted);line-height:1.4;}
+  @media (max-width:600px){ .kpi-row{grid-template-columns:1fr 1fr;} .kpi:last-child{grid-column:span 2;} }
+
   /* ============ DIAGRAM (loop SVG) ============ */
   .diagram-wrap{margin-top:2rem;overflow-x:auto;}
   svg.diagram{width:100%;min-width:680px;height:auto;overflow:visible;}
@@ -194,6 +210,56 @@
   .c-warn{color:var(--pending);}
   .c-proj{color:#8a6eea;} /* projection marker — deliberately outside the brand palette */
   .c-cmd{color:var(--text-primary);font-weight:600;}
+
+  /* ============ LADDER DEPTH CHART ============
+     Ordinal — 5 tiers, one hue, monotone lightness (--ramp-1..5). Bar length is
+     illustrative reach (qualitative), not a measured quantity, so it's drawn as
+     discrete filled/unfilled segments rather than a continuous scale that would
+     imply false precision. */
+  .depth-chart{border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:1.3rem 1.4rem;margin-top:1.6rem;}
+  .depth-chart-cap{font-family:var(--font-mono);font-size:.72rem;color:var(--text-muted);margin-bottom:1rem;}
+  .dc-row{display:grid;grid-template-columns:2.6rem auto 1fr auto;align-items:center;gap:.9rem;padding-block:.55rem;}
+  .dc-row + .dc-row{border-top:1px dashed var(--border);}
+  .dc-row .tier{font-family:var(--font-mono);font-weight:700;font-size:.85rem;color:var(--text-primary);}
+  .dc-meter{display:flex;gap:3px;}
+  .dc-seg{width:15px;height:9px;border-radius:2px;background:var(--surface-3);border:1px solid var(--border);}
+  .dc-row .name{font-size:.86rem;color:var(--text-secondary);}
+  .dc-row .built{display:flex;align-items:center;gap:.35em;font-family:var(--font-mono);font-size:.72rem;color:var(--confirmed);white-space:nowrap;}
+  @media (max-width:560px){ .dc-row{grid-template-columns:2.2rem auto 1fr;} .dc-row .built{display:none;} }
+
+  /* ============ EFFECT-SIZE CHART (escalation rationale) ============
+     Emphasis form: gray context bars (not significant) + one accent bar (the
+     tier that moved the outcome). True linear scale — small bars stay small;
+     that gap is the point, not a rendering flaw. */
+  .effect-chart{border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:1.3rem 1.4rem 1.5rem;margin-top:1.8rem;}
+  .ec-row{display:grid;grid-template-columns:3.4rem 1fr auto;align-items:center;gap:.9rem;padding-block:.65rem;}
+  .ec-row + .ec-row{border-top:1px dashed var(--border);}
+  .ec-row .tier{font-family:var(--font-mono);font-weight:700;font-size:.82rem;color:var(--text-primary);}
+  .ec-track{position:relative;height:14px;background:var(--surface-2);border-radius:3px;}
+  .ec-bar{position:absolute;left:0;top:0;height:100%;border-radius:3px;background:var(--border-strong);}
+  .ec-bar.hit{background:var(--confirmed);}
+  .ec-val{font-family:var(--font-mono);font-size:.78rem;color:var(--text-secondary);white-space:nowrap;text-align:right;}
+  .ec-val b{color:var(--text-primary);font-weight:600;}
+  .ec-val.hit b{color:var(--confirmed);}
+  .ec-val .tag{color:var(--text-muted);font-size:.7rem;}
+  .ec-legend{display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--border);font-family:var(--font-mono);font-size:.72rem;color:var(--text-secondary);}
+  .ec-legend .lg{display:flex;align-items:center;gap:.5em;}
+  .ec-legend i{width:10px;height:10px;border-radius:2px;display:inline-block;}
+  .ec-legend i.ns{background:var(--border-strong);}
+  .ec-legend i.hit{background:var(--confirmed);}
+  @media (max-width:560px){ .ec-row{grid-template-columns:2.6rem 1fr;} .ec-val{grid-column:1 / -1;text-align:left;padding-left:2.6rem;margin-top:-.3rem;} }
+
+  /* ============ VERDICT BAR (confirmed vs refuted) ============
+     Status colors on a 2-segment bar — CVD-unsafe as color alone (confirmed
+     green / refuted red measure ΔE 3.6 under deutan), so every segment carries
+     an icon + text label, never color by itself. */
+  .verdict-bar{border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:1.2rem 1.3rem;margin:1.6rem 0 2.2rem;}
+  .vb-track{display:flex;height:34px;border-radius:8px;overflow:hidden;background:var(--surface-2);}
+  .vb-seg{display:flex;align-items:center;justify-content:center;gap:.4em;font-family:var(--font-mono);font-size:.76rem;font-weight:600;color:var(--text-on-accent);}
+  .vb-seg.confirmed{background:var(--confirmed);}
+  .vb-seg.refuted{background:var(--refuted);}
+  .vb-cap{margin-top:.7rem;font-size:.82rem;color:var(--text-secondary);}
+  .vb-cap b{color:var(--text-primary);}
 
   /* ============ LADDER ============ */
   .ladder{display:flex;flex-direction:column;gap:.6rem;margin-top:1.6rem;}
@@ -242,16 +308,6 @@
   .paper-row .v{font-family:var(--font-mono);font-size:.76rem;color:var(--text-muted);white-space:nowrap;flex-shrink:0;}
   .paper-row .v.pre{color:var(--pending);}
 
-  /* ============ TEAM ============ */
-  .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.4rem;margin-top:1.6rem;}
-  .member{border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:1.3rem 1.4rem;}
-  .member-head{display:flex;align-items:center;gap:.8rem;margin-bottom:.7rem;}
-  .avatar{width:34px;height:34px;border-radius:7px;image-rendering:pixelated;flex-shrink:0;}
-  .member .nm a{font-family:var(--font-head);font-weight:600;font-size:1rem;text-decoration:none;}
-  .member .nm a:hover{color:var(--brand);}
-  .member .rl{font-family:var(--font-mono);font-size:.74rem;color:var(--text-muted);margin-top:.15rem;}
-  .member .bio{font-size:.86rem;color:var(--text-secondary);line-height:1.55;}
-
   /* ============ FOOTER ============ */
   footer{border-top:1px solid var(--border);padding-block:2.5rem;}
   .foot-grid{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:center;}
@@ -272,7 +328,6 @@
         <a href="#trust">Trust</a>
         <a href="#quickstart">Quickstart</a>
         <a href="#research">Research</a>
-        <a href="#team">Team</a>
       </nav>
       <div class="navcta">
         <a class="btn btn-ghost" href="https://evalvitals.github.io/evalvitals/" target="_blank" rel="noopener">Docs</a>
@@ -324,6 +379,19 @@
             <span><span class="ok">1</span> of <span class="c-dim">4</span> candidate signals confirmed · held-out, e-BH α=0.05</span>
             <span class="c-dim">from the committed <a href="https://github.com/evalvitals/evalvitals/tree/main/examples/m2_m3/deco_hallu_explore/reference_output" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">deco_hallu_explore</a> run</span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ KPI ROW ============ -->
+    <section class="kpi-band">
+      <div class="wrap">
+        <div class="kpi-row">
+          <div class="kpi"><div class="n">26</div><div class="l">analyzers<br>implemented</div></div>
+          <div class="kpi"><div class="n">16</div><div class="l">model specs<br>in the registry</div></div>
+          <div class="kpi"><div class="n">554</div><div class="l">unit tests<br>over the analyzer suite</div></div>
+          <div class="kpi"><div class="n">5</div><div class="l">repair tiers<br>L1 → L4</div></div>
+          <div class="kpi"><div class="n">2</div><div class="l">reproducible runs<br>committed, no install needed</div></div>
         </div>
       </div>
     </section>
@@ -428,7 +496,36 @@
           <h2>Escalating through the repair ladder.</h2>
           <p>The lines above the divider are the system's real control flow on the committed hallucination example. Below it, in violet, is a projection of one escalated fine-tune — strategy choice, cost at the published H200 rate, and the outcome a repair would have to demonstrate.</p>
         </div>
-        <figure>
+
+        <div class="effect-chart" role="img" aria-label="Effect size versus baseline by repair tier: L1 plus 0.4 percentage points, not significant; L2 plus 1.2 points, not significant; L3b plus 1.1 points, not significant; L4 plus 12.5 points, p equals 0.0007, projected">
+          <div class="ec-row">
+            <span class="tier">L1</span>
+            <div class="ec-track"><div class="ec-bar" style="width:3%"></div></div>
+            <span class="ec-val"><b>+0.4pp</b> <span class="tag">p=0.41</span></span>
+          </div>
+          <div class="ec-row">
+            <span class="tier">L2</span>
+            <div class="ec-track"><div class="ec-bar" style="width:10%"></div></div>
+            <span class="ec-val"><b>+1.2pp</b> <span class="tag">p=0.19</span></span>
+          </div>
+          <div class="ec-row">
+            <span class="tier">L3b</span>
+            <div class="ec-track"><div class="ec-bar" style="width:9%"></div></div>
+            <span class="ec-val"><b>+1.1pp</b> <span class="tag">p=0.22</span></span>
+          </div>
+          <div class="ec-row">
+            <span class="tier">L4</span>
+            <div class="ec-track"><div class="ec-bar hit" style="width:100%"></div></div>
+            <span class="ec-val hit"><b>+12.5pp</b> <span class="tag">p=0.0007</span></span>
+          </div>
+          <div class="ec-legend">
+            <span class="lg"><i class="ns"></i>measured on this run — not significant vs. baseline</span>
+            <span class="lg"><i class="hit"></i>projected — the outcome L4 would have to hold on re-test</span>
+          </div>
+        </div>
+        <p style="font-size:.82rem;color:var(--text-muted);margin-top:.7rem;max-width:70ch;">Bars are on a true linear scale — L1–L3b really are that close to flat. Δ is signed so "more improvement" always points right; L4's value mirrors the −12.5pp hallucination-rate drop from the walkthrough below.</p>
+
+        <figure style="margin-top:2.2rem;">
           <div class="term">
             <div class="term-bar">
               <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
@@ -450,6 +547,42 @@
           <h2>Repairs are ordered by how deeply they cut into the model.</h2>
           <p>Each rung buys causal reach and costs deployability. The ceiling is yours to set — escalation is recommended, never automatic.</p>
         </div>
+
+        <div class="depth-chart" role="img" aria-label="Five repair tiers, each reaching one segment deeper into the model than the last: L1 input space, L2 scaffold space, L3a internals read, L3b internals write, L4 parameter space. All five are built.">
+          <div class="depth-chart-cap">DEPTH OF INTERVENTION, BY TIER — qualitative ordering, not a measured scale</div>
+          <div class="dc-row">
+            <span class="tier">L1</span>
+            <span class="dc-meter"><i class="dc-seg" style="background:var(--ramp-1);border-color:var(--ramp-1)"></i><i class="dc-seg"></i><i class="dc-seg"></i><i class="dc-seg"></i><i class="dc-seg"></i></span>
+            <span class="name">Input space</span>
+            <span class="built">✓ Built</span>
+          </div>
+          <div class="dc-row">
+            <span class="tier">L2</span>
+            <span class="dc-meter"><i class="dc-seg" style="background:var(--ramp-2);border-color:var(--ramp-2)"></i><i class="dc-seg" style="background:var(--ramp-2);border-color:var(--ramp-2)"></i><i class="dc-seg"></i><i class="dc-seg"></i><i class="dc-seg"></i></span>
+            <span class="name">Scaffold space</span>
+            <span class="built">✓ Built</span>
+          </div>
+          <div class="dc-row">
+            <span class="tier">L3a</span>
+            <span class="dc-meter"><i class="dc-seg" style="background:var(--ramp-3);border-color:var(--ramp-3)"></i><i class="dc-seg" style="background:var(--ramp-3);border-color:var(--ramp-3)"></i><i class="dc-seg" style="background:var(--ramp-3);border-color:var(--ramp-3)"></i><i class="dc-seg"></i><i class="dc-seg"></i></span>
+            <span class="name">Internals, read</span>
+            <span class="built">✓ Built</span>
+          </div>
+          <div class="dc-row">
+            <span class="tier">L3b</span>
+            <span class="dc-meter"><i class="dc-seg" style="background:var(--ramp-4);border-color:var(--ramp-4)"></i><i class="dc-seg" style="background:var(--ramp-4);border-color:var(--ramp-4)"></i><i class="dc-seg" style="background:var(--ramp-4);border-color:var(--ramp-4)"></i><i class="dc-seg" style="background:var(--ramp-4);border-color:var(--ramp-4)"></i><i class="dc-seg"></i></span>
+            <span class="name">Internals, write</span>
+            <span class="built">✓ Built</span>
+          </div>
+          <div class="dc-row">
+            <span class="tier">L4</span>
+            <span class="dc-meter"><i class="dc-seg" style="background:var(--ramp-5);border-color:var(--ramp-5)"></i><i class="dc-seg" style="background:var(--ramp-5);border-color:var(--ramp-5)"></i><i class="dc-seg" style="background:var(--ramp-5);border-color:var(--ramp-5)"></i><i class="dc-seg" style="background:var(--ramp-5);border-color:var(--ramp-5)"></i><i class="dc-seg" style="background:var(--ramp-5);border-color:var(--ramp-5)"></i></span>
+            <span class="name">Parameter space</span>
+            <span class="built">✓ Built</span>
+          </div>
+        </div>
+
+        <div class="depth-chart-cap" style="margin-top:1.8rem;">FULL DETAIL, TIER BY TIER</div>
         <div class="ladder">
           <div class="rung">
             <div class="lvl">L1</div>
@@ -524,6 +657,14 @@
           <span class="eyebrow">04 · From hypothesis to verdict</span>
           <h2>EvalVitals verifies a diagnosis before it becomes a repair.</h2>
           <p>A senior researcher can list ten plausible mechanisms for a failure; an agent will list fifty. Fluent explanations are easy to produce, and the loop tells you which of them hold on your data.</p>
+        </div>
+
+        <div class="verdict-bar" role="img" aria-label="Verdicts on the committed example: 1 of 4 candidate signals confirmed, 3 of 4 refuted, on held-out cases">
+          <div class="vb-track">
+            <div class="vb-seg confirmed" style="flex:1"><span aria-hidden="true">✓</span> 1 confirmed</div>
+            <div class="vb-seg refuted" style="flex:3"><span aria-hidden="true">✗</span> 3 refuted</div>
+          </div>
+          <p class="vb-cap"><b>4</b> candidate signals from Explore, adjudicated on held-out cases (e-BH α=0.05) — from the committed <code>deco_hallu_explore</code> run.</p>
         </div>
 
         <h3 style="font-family:var(--font-head);font-size:1.1rem;margin-bottom:1rem;">Against current practice</h3>
@@ -645,39 +786,6 @@
       </div>
     </section>
 
-    <!-- ============ TEAM ============ -->
-    <section id="team">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow">07 · Team</span>
-          <h2>Founders.</h2>
-        </div>
-        <div class="team-grid">
-          <div class="member">
-            <div class="member-head">
-              <canvas class="avatar" data-seed="Xiaoxiao Li" width="34" height="34" role="img" aria-label="Pixel avatar for Xiaoxiao Li"></canvas>
-              <div><div class="nm"><a href="https://xxlya.github.io/" target="_blank" rel="noopener">Xiaoxiao Li</a></div><div class="rl">UBC Professor · Google</div></div>
-            </div>
-            <p class="bio">CIFAR AI Chair and Canada Research Chair at UBC, IC at Google GenAI. Research spans trustworthy machine learning, optimization, large language models and AI agents.</p>
-          </div>
-          <div class="member">
-            <div class="member-head">
-              <canvas class="avatar" data-seed="Ruinan Jin" width="34" height="34" role="img" aria-label="Pixel avatar for Ruinan Jin"></canvas>
-              <div><div class="nm"><a href="https://nanboy-ronan.github.io/Personal-Web/" target="_blank" rel="noopener">Ruinan Jin</a></div><div class="rl">UBC · AWS &amp; Google</div></div>
-            </div>
-            <p class="bio">Graduate student at UBC. Internships at AWS and Google on customer-facing projects, which is where the gap between a benchmark score and a shipped system becomes obvious.</p>
-          </div>
-          <div class="member">
-            <div class="member-head">
-              <canvas class="avatar" data-seed="Jiaqi Liu" width="34" height="34" role="img" aria-label="Pixel avatar for Jiaqi Liu"></canvas>
-              <div><div class="nm"><a href="https://scholar.google.com/citations?hl=en&amp;user=plvyb6oAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" target="_blank" rel="noopener">Jiaqi Liu</a></div><div class="rl">UBC · Alibaba</div></div>
-            </div>
-            <p class="bio">Graduate student at UBC. Former Alibaba researcher, building Alibaba's top-ranked open-source model Ovis and developing on Qwen.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <footer>
@@ -775,36 +883,6 @@
     }, { threshold: 0.35 });
     io.observe(term);
     if (replay) replay.addEventListener("click", play);
-  })();
-
-  /* Deterministic pixel avatars — a name hashes to a mirrored bit grid, drawn
-     on canvas rather than shipped as image files. Re-tints on theme flip. */
-  (function () {
-    var hash = function(s){ var h = 2166136261; for (var i=0;i<s.length;i++){ h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; };
-    function draw(cv){
-      var seed = cv.dataset.seed || "";
-      var cs = getComputedStyle(document.documentElement);
-      var on = cs.getPropertyValue("--brand").trim() || "#0b6e6e";
-      var dim = cs.getPropertyValue("--text-secondary").trim() || "#3d4c48";
-      var ctx = cv.getContext("2d");
-      var N = 7, cell = cv.width / N;
-      ctx.clearRect(0, 0, cv.width, cv.height);
-      var h = hash(seed);
-      var next = function(){ h = Math.imul(h ^ (h >>> 15), 2246822507); return (h >>> 0) / 4294967296; };
-      for (var y = 0; y < N; y++) {
-        for (var x = 0; x < Math.ceil(N / 2); x++) {
-          var r = next();
-          if (r < 0.44) continue;
-          ctx.fillStyle = r > 0.82 ? dim : on;
-          ctx.fillRect(x * cell, y * cell, cell, cell);
-          ctx.fillRect((N - 1 - x) * cell, y * cell, cell, cell);
-        }
-      }
-    }
-    var all = function(){ document.querySelectorAll("canvas.avatar").forEach(draw); };
-    all();
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", all);
-    new MutationObserver(all).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
   })();
 })();
 </script>
