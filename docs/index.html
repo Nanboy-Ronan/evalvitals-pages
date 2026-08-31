@@ -299,6 +299,51 @@
   .stage-gate{display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start;margin-top:1rem;padding:.85rem 1rem;border-left:3px solid var(--brand);background:var(--brand-soft);}
   .stage-gate b{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:var(--brand);}
   .stage-gate p{font-size:.8rem;color:var(--text-secondary);}
+  .stage-deep{margin-top:1rem;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--surface);}
+  .stage-question{display:grid;grid-template-columns:8.5rem 1fr;gap:1rem;align-items:center;padding:.8rem 1rem;border-bottom:1px solid var(--border);background:var(--surface-2);}
+  .stage-question span,.contract-k{font-family:var(--font-mono);font-size:.61rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);}
+  .stage-question b{font-size:.84rem;font-weight:600;}
+  .stage-controls{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;padding:1rem;background:var(--surface-2);border-bottom:1px solid var(--border);}
+  .stage-control{position:relative;min-height:112px;padding:.9rem 1rem .9rem 2.8rem;border:1px solid var(--border);border-radius:8px;background:var(--surface);}
+  .stage-control:not(:last-child)::after{content:"→";position:absolute;right:-1.12rem;top:50%;transform:translateY(-50%);color:var(--brand);font-family:var(--font-mono);font-size:.9rem;font-weight:600;}
+  .stage-control i{position:absolute;left:.9rem;top:.92rem;width:1.35rem;height:1.35rem;display:grid;place-items:center;border-radius:50%;background:var(--brand-soft);color:var(--brand);font-family:var(--font-mono);font-size:.57rem;font-style:normal;font-weight:600;}
+  .stage-control b{display:block;font-size:.76rem;margin-bottom:.28rem;}
+  .stage-control span{display:block;color:var(--text-muted);font-size:.7rem;line-height:1.4;}
+  .stage-contract{display:grid;grid-template-columns:1.15fr 2fr .9fr;}
+  .contract-cell{padding:.85rem 1rem;min-width:0;}
+  .contract-cell + .contract-cell{border-left:1px solid var(--border);}
+  .contract-cell b{display:block;margin-top:.3rem;font-size:.78rem;}
+  .contract-cell p{margin-top:.28rem;color:var(--text-muted);font-size:.7rem;line-height:1.4;}
+  .contract-fields{display:flex;flex-wrap:wrap;gap:.32rem;margin-top:.42rem;}
+  .contract-fields code{padding:.18rem .36rem;border:1px solid var(--border);border-radius:4px;background:var(--surface-2);font-size:.59rem;color:var(--text-secondary);}
+  .contract-next{display:flex;flex-direction:column;justify-content:center;background:var(--brand-soft);}
+  .contract-next b{color:var(--brand);font-family:var(--font-mono);font-size:.69rem;}
+  .data-preview{margin-top:.8rem;border:1px solid var(--border);border-radius:7px;overflow:hidden;background:var(--surface);}
+  .data-row{display:grid;align-items:center;min-height:31px;border-top:1px solid var(--border);}
+  .data-row:first-child{border-top:0;background:var(--surface-3);}
+  .data-row span{padding:.38rem .48rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--font-mono);font-size:.57rem;color:var(--text-secondary);}
+  .data-row span + span{border-left:1px solid var(--border);}
+  .data-row.header span{color:var(--text-muted);font-weight:600;}
+  .data-row .present{color:var(--brand);font-weight:600;}.data-row .missing{color:var(--refuted);}
+  .signal-preview .data-row{grid-template-columns:.8fr .65fr 1fr 1fr 1fr .72fr;}
+  .evidence-preview .data-row{grid-template-columns:1fr .55fr .9fr .75fr .8fr;}
+  .hyp-freeze{display:grid;grid-template-columns:repeat(4,1fr);margin-top:.8rem;border:1px solid var(--brand);border-radius:7px;overflow:hidden;background:var(--brand-soft);}
+  .hyp-freeze div{padding:.6rem .65rem;min-width:0;}.hyp-freeze div+div{border-left:1px solid color-mix(in srgb,var(--brand) 28%,var(--border));}
+  .hyp-freeze span{display:block;font-family:var(--font-mono);font-size:.55rem;letter-spacing:.05em;text-transform:uppercase;color:var(--brand);}
+  .hyp-freeze b{display:block;margin-top:.2rem;font-size:.67rem;}
+  .verdict-routes{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:.8rem;}
+  .verdict-route{padding:.62rem .7rem;border:1px solid var(--border);border-radius:7px;background:var(--surface);}
+  .verdict-route b{display:block;font-family:var(--font-mono);font-size:.63rem;}.verdict-route span{display:block;margin-top:.2rem;color:var(--text-muted);font-size:.65rem;}
+  .verdict-route.yes{border-color:var(--confirmed);background:var(--confirmed-soft);}.verdict-route.yes b{color:var(--confirmed);}
+  .verdict-route.no{border-color:var(--refuted);background:var(--refuted-soft);}.verdict-route.no b{color:var(--refuted);}
+  .verdict-route.maybe{border-color:var(--pending);background:var(--pending-soft);}.verdict-route.maybe b{color:var(--pending);}
+  .paired-ledger{display:grid;grid-template-columns:1fr auto 1fr;margin-top:.8rem;border:1px solid var(--border);border-radius:7px;overflow:hidden;background:var(--surface);}
+  .paired-side{padding:.65rem .75rem;}.paired-side span{display:block;font-family:var(--font-mono);font-size:.57rem;color:var(--text-muted);}.paired-side b{display:block;margin-top:.2rem;font-size:.72rem;}
+  .paired-outcomes{display:flex;align-items:center;gap:.35rem;padding:.55rem;border-inline:1px solid var(--border);background:var(--surface-2);}
+  .paired-outcomes span{padding:.25rem .38rem;border-radius:4px;font-family:var(--font-mono);font-size:.55rem;background:var(--surface);border:1px solid var(--border);}.paired-outcomes .rescue{color:var(--confirmed);border-color:var(--confirmed);}.paired-outcomes .harm{color:var(--refuted);border-color:var(--refuted);}
+  .stage-bridge{display:grid;grid-template-columns:1fr auto 1.15fr auto 1.15fr auto 1fr;gap:.45rem;align-items:center;margin-top:.8rem;padding:.75rem;border:1px dashed var(--brand);border-radius:8px;background:var(--brand-soft);}
+  .bridge-node{min-height:64px;padding:.55rem .6rem;border:1px solid color-mix(in srgb,var(--brand) 38%,var(--border));border-radius:6px;background:var(--surface);display:grid;align-content:center;text-align:center;}
+  .bridge-node span{font-family:var(--font-mono);font-size:.54rem;letter-spacing:.05em;text-transform:uppercase;color:var(--brand);}.bridge-node b{margin-top:.18rem;font-size:.66rem;line-height:1.3;}.bridge-arrow{color:var(--brand);font-family:var(--font-mono);font-size:.8rem;}
   .stage-dossier.verify .stage-id{color:var(--confirmed);border-color:var(--confirmed);background:var(--confirmed-soft);}
   .stage-dossier.verify .stage-note b,.stage-dossier.verify .stage-open{color:var(--confirmed);}
   .stage-dossier.verify .stage-gate{border-left-color:var(--confirmed);background:var(--confirmed-soft);}
@@ -327,6 +372,14 @@
     .forest-row{grid-template-columns:4.2rem 1fr 3.6rem;gap:.4rem;}
     .forest-axis{margin-left:4.6rem;}
     .stage-gate{grid-template-columns:1fr;gap:.35rem;}
+    .stage-question{grid-template-columns:1fr;gap:.25rem;}
+    .stage-controls{grid-template-columns:1fr;gap:1.5rem;}
+    .stage-control{min-height:0;}.stage-control:not(:last-child)::after{content:"↓";right:50%;top:auto;bottom:-1.18rem;transform:translateX(50%);}
+    .stage-contract{grid-template-columns:1fr;}.contract-cell + .contract-cell{border-left:0;border-top:1px solid var(--border);}
+    .signal-preview,.evidence-preview{overflow-x:auto;}.signal-preview .data-row{min-width:570px;}.evidence-preview .data-row{min-width:470px;}
+    .hyp-freeze{grid-template-columns:1fr 1fr;}.hyp-freeze div:nth-child(3){border-left:0;border-top:1px solid color-mix(in srgb,var(--brand) 28%,var(--border));}.hyp-freeze div:nth-child(4){border-top:1px solid color-mix(in srgb,var(--brand) 28%,var(--border));}
+    .verdict-routes{grid-template-columns:1fr;}.paired-ledger{grid-template-columns:1fr;}.paired-outcomes{border-inline:0;border-block:1px solid var(--border);justify-content:center;}
+    .stage-bridge{grid-template-columns:1fr;gap:.42rem;}.bridge-arrow{text-align:center;transform:rotate(90deg);}
   }
 
   .io{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.2rem;}
@@ -617,11 +670,30 @@
                     <span class="flow-arrow">→</span>
                     <div><div class="signal-matrix"><i class="on"></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i class="on"></i><i class="on"></i><i></i><i></i><i class="on"></i></div><div class="viz-cap" style="margin:.5rem 0 0;"><span>typed signal matrix</span></div></div>
                   </div>
+                  <div class="data-preview signal-preview" aria-label="Field-level schema for the M1 per-case signal table">
+                    <div class="data-row header"><span>case_id</span><span>target</span><span>confidence</span><span>consistency</span><span>grounding</span><span>coverage</span></div>
+                    <div class="data-row"><span>&lt;stable id&gt;</span><span>pass | fail</span><span class="present">float [0,1]</span><span class="present">float [0,1]</span><span class="present">float | missing</span><span>k / K</span></div>
+                    <div class="data-row"><span>&lt;stable id&gt;</span><span>pass | fail</span><span class="present">float [0,1]</span><span class="missing">missing + reason</span><span class="present">float</span><span>k / K</span></div>
+                  </div>
                 </div>
                 <div class="stage-notes">
                   <div class="stage-note"><b>Input</b><span>Model runs + modality</span></div>
                   <div class="stage-note"><b>Agent does</b><span>Route → probe → record coverage</span></div>
                   <div class="stage-note"><b>Output</b><span>Per-case signals for M2</span></div>
+                </div>
+              </div>
+              <div class="stage-deep">
+                <div class="stage-question"><span>Stage question</span><b>What observable behavior separates failures from passes?</b></div>
+                <div class="stage-controls">
+                  <div class="stage-control"><i>01</i><b>Normalize cases</b><span>Preserve stable IDs, labels, modality and model provenance.</span></div>
+                  <div class="stage-control"><i>02</i><b>Route analyzers</b><span>Run only probes compatible with the available outputs and internals.</span></div>
+                  <div class="stage-control"><i>03</i><b>Type signals</b><span>Record value, direction, scope and missingness instead of flattening everything.</span></div>
+                  <div class="stage-control"><i>04</i><b>Audit coverage</b><span>Count which cases and groups each signal actually measured.</span></div>
+                </div>
+                <div class="stage-contract">
+                  <div class="contract-cell"><span class="contract-k">Handoff record</span><b>Per-case signal table</b><p>One traceable row per case; no silent imputation.</p></div>
+                  <div class="contract-cell"><span class="contract-k">Required fields</span><div class="contract-fields"><code>case_id</code><code>target</code><code>signal.*</code><code>coverage</code><code>missing_reason</code><code>provenance</code></div></div>
+                  <div class="contract-cell contract-next"><span class="contract-k">Next consumer</span><b>M2 · Explore →</b></div>
                 </div>
               </div>
               <div class="stage-gate"><b>Boundary</b><p>Behavior, not cause. Missing probes stay visibly missing.</p></div>
@@ -646,11 +718,36 @@
                     <div class="forest-row"><span>signal D</span><div class="forest-track" style="--lo:45%;--hi:73%;--dot:59%"><i></i><b></b></div><em>screened</em></div>
                   </div>
                   <div class="forest-axis"><span>less failure</span><span>0</span><span>more failure</span></div>
+                  <div class="data-preview evidence-preview" aria-label="Field-level schema and decision patterns for M2 ranked evidence records">
+                    <div class="data-row header"><span>signal</span><span>n</span><span>effect + interval</span><span>evidence</span><span>decision</span></div>
+                    <div class="data-row"><span>survivor</span><span>n_valid</span><span class="present">direction · excludes 0</span><span>adjusted</span><span class="present">advance</span></div>
+                    <div class="data-row"><span>screened</span><span>n_valid</span><span>interval crosses 0</span><span>adjusted</span><span>screen out</span></div>
+                  </div>
+                  <div class="stage-bridge" role="img" aria-label="The M2 to M3 bridge turns a discovery-time signal into competing mechanisms, testable predictions, and frozen hypothesis specifications">
+                    <div class="bridge-node"><span>M2 survivor</span><b>effect + interval</b></div><span class="bridge-arrow">→</span>
+                    <div class="bridge-node"><span>M3 alternatives</span><b>mechanism A / B</b></div><span class="bridge-arrow">→</span>
+                    <div class="bridge-node"><span>observable claim</span><b>prediction + control</b></div><span class="bridge-arrow">→</span>
+                    <div class="bridge-node"><span>freeze</span><b>test + falsifier</b></div>
+                  </div>
                 </div>
                 <div class="stage-notes">
                   <div class="stage-note"><b>Input</b><span>M1 signal matrix</span></div>
                   <div class="stage-note"><b>Agent does</b><span>Test → correct → rank → plot</span></div>
                   <div class="stage-note"><b>Output</b><span>Effects, intervals, evidence chain</span></div>
+                </div>
+              </div>
+              <div class="stage-deep">
+                <div class="stage-question"><span>Stage question</span><b>Which measured signals are reliably associated with failure on discovery data?</b></div>
+                <div class="stage-controls">
+                  <div class="stage-control"><i>01</i><b>Select the test</b><span>Match paired, continuous, categorical or sequential evidence to its valid test.</span></div>
+                  <div class="stage-control"><i>02</i><b>Estimate magnitude</b><span>Report direction, effect size and uncertainty—not significance alone.</span></div>
+                  <div class="stage-control"><i>03</i><b>Correct the search</b><span>Account for the many signals and subgroups screened during discovery.</span></div>
+                  <div class="stage-control"><i>04</i><b>Build evidence chain</b><span>Rank survivors with plots, coverage and alternative explanations attached.</span></div>
+                </div>
+                <div class="stage-contract">
+                  <div class="contract-cell"><span class="contract-k">Handoff record</span><b>Ranked evidence cards</b><p>Leads carry their uncertainty and coverage forward.</p></div>
+                  <div class="contract-cell"><span class="contract-k">Required fields</span><div class="contract-fields"><code>signal</code><code>n</code><code>effect</code><code>interval</code><code>test</code><code>adjustment</code><code>coverage</code></div></div>
+                  <div class="contract-cell contract-next"><span class="contract-k">Next consumer</span><b>M3 · Diagnose →</b></div>
                 </div>
               </div>
               <div class="stage-gate"><b>Boundary</b><p>Discovery-time survivors are leads. M5 owns the verdict.</p></div>
@@ -672,11 +769,26 @@
                     <div class="hyp-lane"><span>H1</span><div class="hyp-chain"><div class="hyp-box">observed<br>pattern</div><span class="flow-arrow">→</span><div class="hyp-box">mechanism A</div><span class="flow-arrow">→</span><div class="hyp-box">test that can fail</div></div></div>
                     <div class="hyp-lane"><span>H2</span><div class="hyp-chain"><div class="hyp-box">same<br>evidence</div><span class="flow-arrow">→</span><div class="hyp-box">mechanism B</div><span class="flow-arrow">→</span><div class="hyp-box">competing test</div></div></div>
                   </div>
+                  <div class="hyp-freeze" aria-label="Fields frozen for each M3 hypothesis before held-out testing"><div><span>Statement</span><b>Mechanism claim</b></div><div><span>Prediction</span><b>Expected direction</b></div><div><span>Test</span><b>Control + statistic</b></div><div><span>Falsifier</span><b>Decision rule</b></div></div>
                 </div>
                 <div class="stage-notes">
                   <div class="stage-note"><b>Input</b><span>M2 evidence chain</span></div>
                   <div class="stage-note"><b>Agent does</b><span>Explain → compete → preregister</span></div>
                   <div class="stage-note"><b>Output</b><span>Frozen hypotheses + test plans</span></div>
+                </div>
+              </div>
+              <div class="stage-deep">
+                <div class="stage-question"><span>Stage question</span><b>What mechanism could explain the pattern—and what observation would prove it wrong?</b></div>
+                <div class="stage-controls">
+                  <div class="stage-control"><i>01</i><b>Draft alternatives</b><span>Generate competing mechanisms from the same evidence, not one favored story.</span></div>
+                  <div class="stage-control"><i>02</i><b>Derive predictions</b><span>Translate each mechanism into an observable expected association.</span></div>
+                  <div class="stage-control"><i>03</i><b>Design a test</b><span>Specify intervention, control, statistic and expected direction.</span></div>
+                  <div class="stage-control"><i>04</i><b>Freeze the claim</b><span>Lock the test and decision rule before any sealed result is visible.</span></div>
+                </div>
+                <div class="stage-contract">
+                  <div class="contract-cell"><span class="contract-k">Handoff record</span><b>Frozen hypothesis specifications</b><p>Every explanation arrives with a way to lose.</p></div>
+                  <div class="contract-cell"><span class="contract-k">Required fields</span><div class="contract-fields"><code>hypothesis_id</code><code>statement</code><code>prediction</code><code>test</code><code>control</code><code>threshold</code><code>falsifier</code></div></div>
+                  <div class="contract-cell contract-next"><span class="contract-k">Next consumer</span><b>M5 · Verify →</b></div>
                 </div>
               </div>
               <div class="stage-gate"><b>Gate</b><p>No falsifier, no advancement—plausibility alone is not evidence.</p></div>
@@ -700,11 +812,26 @@
                     <div class="split-branches"><div class="split-branch"><span>DISCOVERY</span><b>364</b></div><div class="split-branch sealed"><span>SEALED</span><b>242</b></div></div>
                   </div>
                   <div class="verdict-mini"><span class="yes">✓ 1 confirmed</span><span class="no">× 3 refuted</span></div>
+                  <div class="verdict-routes" aria-label="M5 verdicts route to repair, renewed probing, or additional evidence"><div class="verdict-route yes"><b>✓ SUPPORTED</b><span>advance mechanism to M4</span></div><div class="verdict-route no"><b>× REFUTED</b><span>return to M1/M3</span></div><div class="verdict-route maybe"><b>· INCONCLUSIVE</b><span>seek power; do not promote</span></div></div>
                 </div>
                 <div class="stage-notes">
-                  <div class="stage-note"><b>Input</b><span>Frozen H1/H2 + sealed cases</span></div>
+                  <div class="stage-note"><b>Input</b><span>Frozen hypothesis specs + sealed cases</span></div>
                   <div class="stage-note"><b>Agent does</b><span>Run test → correct → grade</span></div>
                   <div class="stage-note"><b>Output</b><span>Supported / refuted / inconclusive</span></div>
+                </div>
+              </div>
+              <div class="stage-deep">
+                <div class="stage-question"><span>Stage question</span><b>Which frozen explanations survive evidence that discovery never touched?</b></div>
+                <div class="stage-controls">
+                  <div class="stage-control"><i>01</i><b>Load sealed IDs</b><span>Confirm discovery artifacts never contain the held-out case identities.</span></div>
+                  <div class="stage-control"><i>02</i><b>Execute as frozen</b><span>Run the declared test without revising the hypothesis after results appear.</span></div>
+                  <div class="stage-control"><i>03</i><b>Correct and grade</b><span>Apply the declared multiplicity rule and preserve uncertainty.</span></div>
+                  <div class="stage-control"><i>04</i><b>Route the verdict</b><span>Supported, refuted and inconclusive claims take different next actions.</span></div>
+                </div>
+                <div class="stage-contract">
+                  <div class="contract-cell"><span class="contract-k">Handoff record</span><b>Held-out verdict records</b><p>A verdict includes the result and why that grade was assigned.</p></div>
+                  <div class="contract-cell"><span class="contract-k">Required fields</span><div class="contract-fields"><code>hypothesis_id</code><code>effect</code><code>uncertainty</code><code>multiplicity</code><code>verdict</code><code>reason</code></div></div>
+                  <div class="contract-cell contract-next"><span class="contract-k">Next consumer</span><b>Supported → M4</b></div>
                 </div>
               </div>
               <div class="stage-gate"><b>Gate</b><p>Only untouched evidence can promote a pattern to a verdict.</p></div>
@@ -726,11 +853,26 @@
                     <div class="mini-ladder"><div class="mini-rung"><b>L1</b><span>prompt</span><em>flat</em></div><div class="mini-rung"><b>L2</b><span>scaffold</span><em>flat</em></div><div class="mini-rung"><b>L3b</b><span>internals</span><em>flat</em></div><div class="mini-rung next"><b>L4</b><span>parameters</span><em>next ↑</em></div></div>
                     <div class="freeze-flow"><div class="freeze-col"><span>candidate A</span><span class="chosen">winner B</span><span>candidate C</span></div><span class="flow-arrow">→</span><div class="paired-box"><b>freeze B</b><small>held-out pairs<br>B vs baseline</small></div></div>
                   </div>
+                  <div class="paired-ledger" aria-label="M4 compares the frozen repair candidate with an unchanged baseline on paired cases and records rescues, harms and unchanged outcomes"><div class="paired-side"><span>UNCHANGED BASELINE</span><b>same cases · same evaluator</b></div><div class="paired-outcomes"><span class="rescue">rescue</span><span class="harm">harm</span><span>unchanged</span></div><div class="paired-side"><span>FROZEN CANDIDATE</span><b>paired delta + decision</b></div></div>
                 </div>
                 <div class="stage-notes">
                   <div class="stage-note"><b>Input</b><span>Verified mechanism + tier ceiling</span></div>
                   <div class="stage-note"><b>Agent does</b><span>Generate → select → freeze → re-test</span></div>
                   <div class="stage-note"><b>Output</b><span>Validated fix or escalation</span></div>
+                </div>
+              </div>
+              <div class="stage-deep">
+                <div class="stage-question"><span>Stage question</span><b>What is the least invasive intervention that improves the verified failure mode?</b></div>
+                <div class="stage-controls">
+                  <div class="stage-control"><i>01</i><b>Choose the tier</b><span>Start at the cheapest allowed intervention consistent with the mechanism.</span></div>
+                  <div class="stage-control"><i>02</i><b>Search candidates</b><span>Generate and compare options only on discovery-side evidence.</span></div>
+                  <div class="stage-control"><i>03</i><b>Freeze a winner</b><span>Lock candidate, baseline, evaluator and success rule before confirmation.</span></div>
+                  <div class="stage-control"><i>04</i><b>Run paired re-test</b><span>Count improvements, rescues and harms on the same untouched cases.</span></div>
+                </div>
+                <div class="stage-contract">
+                  <div class="contract-cell"><span class="contract-k">Handoff record</span><b>Repair decision ledger</b><p>Ship, escalate or stop—with the paired comparison attached.</p></div>
+                  <div class="contract-cell"><span class="contract-k">Required fields</span><div class="contract-fields"><code>tier</code><code>candidate</code><code>baseline</code><code>paired_delta</code><code>rescues</code><code>harms</code><code>decision</code></div></div>
+                  <div class="contract-cell contract-next"><span class="contract-k">Next action</span><b>Ship or escalate ↺</b></div>
                 </div>
               </div>
               <div class="stage-gate"><b>Gate</b><p>Search winner ≠ fix. It must beat baseline on untouched pairs.</p></div>
