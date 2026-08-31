@@ -382,6 +382,67 @@
     .stage-bridge{grid-template-columns:1fr;gap:.42rem;}.bridge-arrow{text-align:center;transform:rotate(90deg);}
   }
 
+  /* ============ STAGE FLOWBOARDS v3 ============ */
+  .stage-dossier.combo summary{grid-template-columns:4.8rem minmax(160px,.85fr) minmax(220px,1.6fr) auto;}
+  .stage-id.combo{width:4rem;}
+  .flowboard{border:1px solid var(--border);border-radius:12px;background:var(--surface-2);overflow:hidden;}
+  .flowboard-head{display:flex;justify-content:space-between;gap:1.5rem;align-items:center;padding:1rem 1.15rem;border-bottom:1px solid var(--border);background:var(--surface);}
+  .flowboard-kicker{font-family:var(--font-mono);font-size:.61rem;letter-spacing:.09em;text-transform:uppercase;color:var(--brand);}
+  .flowboard-head h4{margin-top:.28rem;font-family:var(--font-head);font-size:1.05rem;}
+  .flowboard-out{flex:0 0 auto;max-width:220px;padding:.55rem .7rem;border:1px solid var(--brand);border-radius:7px;background:var(--brand-soft);}
+  .flowboard-out span{display:block;font-family:var(--font-mono);font-size:.55rem;letter-spacing:.07em;text-transform:uppercase;color:var(--brand);}
+  .flowboard-out b{display:block;margin-top:.15rem;font-size:.7rem;}
+  .flow-sequence{display:grid;grid-template-columns:minmax(100px,.8fr) 1.5rem minmax(120px,.9fr) 1.5rem minmax(210px,1.55fr) 1.5rem minmax(150px,1.05fr);gap:.45rem;align-items:stretch;padding:1.2rem;}
+  .flow-arrow-v3{display:grid;place-items:center;color:var(--brand);font-family:var(--font-mono);font-size:1.05rem;font-weight:600;}
+  .flow-node-v3{position:relative;padding:.85rem;border:1px solid var(--border-strong);border-radius:9px;background:var(--surface);min-width:0;}
+  .flow-node-v3.hero{border-color:var(--brand);background:var(--brand-soft);}
+  .flow-node-v3.dark{border-color:#0b0d0f;background:#0b0d0f;color:#fff;}
+  .node-top{display:flex;justify-content:space-between;gap:.5rem;align-items:center;margin-bottom:.65rem;}
+  .node-step{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.06em;color:var(--brand);}
+  .node-icon{width:1.55rem;height:1.55rem;display:grid;place-items:center;border-radius:6px;background:var(--brand-soft);color:var(--brand);font-family:var(--font-mono);font-size:.66rem;font-weight:700;}
+  .flow-node-v3.dark .node-step{color:#6dcbf4;}.flow-node-v3.dark .node-icon{background:#3d8dff;color:#fff;}
+  .flow-node-v3 h5{margin:0;font-family:var(--font-head);font-size:.88rem;}
+  .flow-node-v3>p{margin-top:.35rem;color:var(--text-muted);font-size:.69rem;line-height:1.4;}
+  .flow-node-v3.dark>p{color:#d9dce1;}
+  .micro-list{display:grid;gap:.32rem;margin-top:.65rem;}
+  .micro-list span{display:flex;justify-content:space-between;gap:.5rem;padding:.32rem .4rem;border:1px solid var(--border);border-radius:4px;background:var(--surface);font-family:var(--font-mono);font-size:.56rem;color:var(--text-secondary);}
+  .micro-list i{font-style:normal;color:var(--brand);}
+  .analyzer-bank-v3{display:grid;grid-template-columns:1fr 1fr;gap:.42rem;margin-top:.65rem;}
+  .analyzer-family{padding:.48rem;border:1px solid color-mix(in srgb,var(--brand) 30%,var(--border));border-radius:6px;background:var(--surface);}
+  .analyzer-family b{display:block;font-size:.66rem;}.analyzer-family span{display:block;margin-top:.15rem;color:var(--text-muted);font-size:.57rem;line-height:1.3;}
+  .matrix-v3{display:grid;grid-template-columns:2.2rem repeat(4,1fr);gap:3px;margin-top:.65rem;align-items:center;}
+  .matrix-v3 span{font-family:var(--font-mono);font-size:.49rem;color:var(--text-muted);}
+  .matrix-v3 i{height:14px;border:1px solid var(--border);border-radius:2px;background:var(--surface-3);}.matrix-v3 i.on{background:var(--brand);border-color:var(--brand);}.matrix-v3 i.na{background:repeating-linear-gradient(135deg,var(--surface-3),var(--surface-3) 3px,var(--surface) 3px,var(--surface) 6px);}
+  .flow-rail{display:grid;grid-template-columns:auto 1fr auto 1fr auto 1fr;gap:.55rem;align-items:center;padding:.75rem 1.2rem;border-top:1px solid var(--border);background:var(--surface);}
+  .rail-label{font-family:var(--font-mono);font-size:.56rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted);}
+  .rail-item{padding:.42rem .55rem;border-left:2px solid var(--brand);background:var(--brand-soft);font-size:.64rem;color:var(--text-secondary);}
+  .rail-arrow{color:var(--brand);font-family:var(--font-mono);font-size:.7rem;}
+  .flowboard-foot{display:grid;grid-template-columns:1fr 1.4fr 1fr;border-top:1px solid var(--border);background:var(--surface);}
+  .flowboard-foot>div{padding:.75rem 1rem;}.flowboard-foot>div+div{border-left:1px solid var(--border);}
+  .flowboard-foot span{display:block;font-family:var(--font-mono);font-size:.55rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted);}
+  .flowboard-foot b{display:block;margin-top:.22rem;font-size:.69rem;}.flowboard-foot .next{background:var(--brand-soft);}.flowboard-foot .next b{color:var(--brand);}
+  .field-line{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.35rem;}.field-line code{padding:.16rem .32rem;border:1px solid var(--border);border-radius:4px;background:var(--surface-2);font-size:.55rem;}
+
+  .m23-sequence{grid-template-columns:minmax(115px,.8fr) 1.4rem minmax(160px,1.1fr) 1.4rem minmax(130px,.9fr) 1.4rem minmax(250px,1.7fr) 1.4rem minmax(150px,1fr);}
+  .mini-forest-v3{display:grid;gap:.38rem;margin-top:.7rem;}.mf-row{display:grid;grid-template-columns:2.5rem 1fr;gap:.35rem;align-items:center;font-family:var(--font-mono);font-size:.51rem;color:var(--text-muted);}.mf-line{height:12px;position:relative;background:linear-gradient(90deg,transparent 49%,var(--border-strong) 49%,var(--border-strong) 51%,transparent 51%);}.mf-line::before{content:"";position:absolute;left:var(--lo);right:calc(100% - var(--hi));top:5px;height:2px;background:var(--text-muted);}.mf-line::after{content:"";position:absolute;left:var(--dot);top:2px;width:7px;height:7px;border-radius:50%;background:var(--surface);border:2px solid var(--text-muted);}.mf-row.hit .mf-line::before{background:var(--brand);}.mf-row.hit .mf-line::after{border-color:var(--brand);background:var(--brand);}
+  .funnel-v3{margin:.75rem auto 0;width:85%;display:grid;gap:3px;}.funnel-v3 i{height:11px;margin-inline:auto;background:var(--brand);opacity:var(--op);width:var(--w);clip-path:polygon(4% 0,96% 0,83% 100%,17% 100%);}
+  .hyp-stack-v3{display:grid;gap:.4rem;margin-top:.65rem;}.hyp-row-v3{display:grid;grid-template-columns:1.25rem 1fr auto;gap:.4rem;align-items:center;padding:.4rem;border:1px solid var(--border);border-radius:5px;background:var(--surface);}.hyp-row-v3>b{font-family:var(--font-mono);font-size:.58rem;color:var(--brand);}.hyp-row-v3 span{font-size:.6rem;}.hyp-row-v3 em{font-family:var(--font-mono);font-size:.5rem;font-style:normal;color:var(--text-muted);}
+  .freeze-gate-v3{margin-top:.65rem;padding:.48rem;border:1px solid #0b0d0f;border-radius:5px;background:#0b0d0f;color:#fff;text-align:center;font-family:var(--font-mono);font-size:.55rem;letter-spacing:.04em;}
+
+  .verify-sequence{grid-template-columns:minmax(160px,1.05fr) 1.5rem minmax(155px,1fr) 1.5rem minmax(125px,.8fr) 1.5rem minmax(190px,1.25fr);}
+  .input-stack-v3{display:grid;gap:.45rem;}.input-card-v3{padding:.55rem;border:1px solid var(--border);border-radius:6px;background:var(--surface);}.input-card-v3 span{display:block;font-family:var(--font-mono);font-size:.53rem;color:var(--text-muted);}.input-card-v3 b{display:block;margin-top:.17rem;font-size:.65rem;}.input-card-v3.locked{border-color:#0b0d0f;}.input-card-v3.locked span{color:var(--text-primary);}
+  .verdict-fan-v3{display:grid;gap:.42rem;margin-top:.6rem;}.verdict-card-v3{padding:.44rem .5rem;border:1px solid;border-radius:5px;background:var(--surface);}.verdict-card-v3 b{display:block;font-family:var(--font-mono);font-size:.55rem;}.verdict-card-v3 span{display:block;margin-top:.12rem;font-size:.55rem;color:var(--text-muted);}.verdict-card-v3.yes{border-color:var(--confirmed);background:var(--confirmed-soft);}.verdict-card-v3.yes b{color:var(--confirmed);}.verdict-card-v3.no{border-color:var(--refuted);background:var(--refuted-soft);}.verdict-card-v3.no b{color:var(--refuted);}.verdict-card-v3.maybe{border-color:var(--pending);background:var(--pending-soft);}.verdict-card-v3.maybe b{color:var(--pending);}
+  .sealed-rule{padding:.7rem 1.2rem;border-top:1px solid var(--border);background:#0b0d0f;color:#fff;display:flex;justify-content:space-between;gap:1rem;font-size:.65rem;}.sealed-rule b{color:#6dcbf4;font-family:var(--font-mono);font-size:.58rem;letter-spacing:.06em;}
+
+  .repair-stairs{display:grid;grid-template-columns:repeat(4,1fr);gap:.65rem;padding:1.15rem 1.2rem 1.5rem;align-items:end;}
+  .repair-step-v3{position:relative;padding:.65rem .7rem;border:1px solid var(--border);border-radius:7px;background:var(--surface);transform:translateY(var(--rise));}.repair-step-v3::after{content:"→";position:absolute;right:-.52rem;top:50%;color:var(--brand);font-family:var(--font-mono);font-size:.7rem;}.repair-step-v3:last-child::after{display:none;}.repair-step-v3 b{display:block;font-family:var(--font-mono);font-size:.64rem;color:var(--brand);}.repair-step-v3 span{display:block;margin-top:.18rem;font-size:.62rem;}.repair-step-v3 em{display:block;margin-top:.28rem;font-family:var(--font-mono);font-size:.51rem;font-style:normal;color:var(--text-muted);}
+  .repair-lab-v3{display:grid;grid-template-columns:1fr 1.4rem 1fr 1.4rem 1.2fr;gap:.5rem;align-items:stretch;padding:1.1rem 1.2rem;border-top:1px solid var(--border);background:var(--surface);}
+  .candidate-stack-v3{display:grid;gap:.35rem;}.candidate-stack-v3 span{padding:.38rem;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--font-mono);font-size:.53rem;}.candidate-stack-v3 .chosen{border-color:var(--brand);background:var(--brand-soft);color:var(--brand);font-weight:600;}
+  .paired-board-v3{display:grid;grid-template-columns:1fr 1fr;gap:.35rem;margin-top:.55rem;}.paired-board-v3 span{padding:.35rem;border:1px solid var(--border);border-radius:4px;font-family:var(--font-mono);font-size:.5rem;text-align:center;}.paired-board-v3 .rescue{color:var(--confirmed);border-color:var(--confirmed);}.paired-board-v3 .harm{color:var(--refuted);border-color:var(--refuted);}
+
+  @media (max-width:820px){.stage-dossier.combo summary{grid-template-columns:4.8rem 1fr auto;}.stage-dossier.combo .stage-purpose{grid-column:2 / -1;}.flow-sequence,.m23-sequence,.verify-sequence{grid-template-columns:1fr;}.flow-arrow-v3{transform:rotate(90deg);min-height:1rem;}.flow-rail{grid-template-columns:1fr;}.rail-arrow{transform:rotate(90deg);text-align:center;}.flowboard-foot{grid-template-columns:1fr;}.flowboard-foot>div+div{border-left:0;border-top:1px solid var(--border);}.repair-lab-v3{grid-template-columns:1fr;}.repair-stairs{grid-template-columns:1fr 1fr;gap:1rem;align-items:stretch;}.repair-step-v3{transform:none;}.repair-step-v3::after{display:none;}}
+  @media (max-width:520px){.flowboard-head{align-items:flex-start;flex-direction:column;}.flowboard-out{max-width:none;width:100%;}.flow-sequence{padding:.9rem;}.analyzer-bank-v3{grid-template-columns:1fr 1fr;}.repair-stairs{grid-template-columns:1fr;}.sealed-rule{flex-direction:column;}}
+
   .io{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.2rem;}
   @media (max-width:760px){ .io{grid-template-columns:1fr;} }
   .io > div{border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:1.2rem 1.3rem;}
@@ -648,8 +709,8 @@
 
         <div class="stage-dossiers">
           <div class="stage-dossiers-head">
-            <h3>Open the loop.</h3>
-            <p>Each row expands one stage from its question to the artifact handed forward. The gate is what prevents a plausible story from silently becoming a fix.</p>
+            <h3>Inside the loop.</h3>
+            <p>Four expandable flowboards show where data moves, where choices branch, what becomes frozen, and which artifact crosses each boundary.</p>
           </div>
 
           <details class="stage-dossier" open>
@@ -660,138 +721,47 @@
               <span class="stage-open">Stage details</span>
             </summary>
             <div class="stage-body">
-              <div class="stage-story">
-                <div class="stage-viz" role="img" aria-label="M1 routes each case to compatible analyzers and assembles their outputs into a per-case signal matrix">
-                  <div class="viz-cap"><b>M1 · behavioral measurement</b><span>one row per case</span></div>
-                  <div class="flow-row">
-                    <div class="flow-node"><b>Case 001</b><small>prompt + media</small></div>
-                    <span class="flow-arrow">→</span>
-                    <div class="analyzer-stack"><span>consistency</span><span>coverage</span><span>confidence</span></div>
-                    <span class="flow-arrow">→</span>
-                    <div><div class="signal-matrix"><i class="on"></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i class="on"></i><i class="on"></i><i></i><i></i><i class="on"></i></div><div class="viz-cap" style="margin:.5rem 0 0;"><span>typed signal matrix</span></div></div>
-                  </div>
-                  <div class="data-preview signal-preview" aria-label="Field-level schema for the M1 per-case signal table">
-                    <div class="data-row header"><span>case_id</span><span>target</span><span>confidence</span><span>consistency</span><span>grounding</span><span>coverage</span></div>
-                    <div class="data-row"><span>&lt;stable id&gt;</span><span>pass | fail</span><span class="present">float [0,1]</span><span class="present">float [0,1]</span><span class="present">float | missing</span><span>k / K</span></div>
-                    <div class="data-row"><span>&lt;stable id&gt;</span><span>pass | fail</span><span class="present">float [0,1]</span><span class="missing">missing + reason</span><span class="present">float</span><span>k / K</span></div>
-                  </div>
+              <div class="flowboard" role="img" aria-label="M1 flowchart: normalize a case packet, route it to compatible analyzer families, assemble a typed signal matrix, and audit coverage before handing the per-case signal table to M2">
+                <div class="flowboard-head"><div><span class="flowboard-kicker">M1 · measurement layer</span><h4>What can we observe for every case?</h4></div><div class="flowboard-out"><span>Output</span><b>Per-case signal table</b></div></div>
+                <div class="flow-sequence">
+                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">01 · INGEST</span><span class="node-icon">ID</span></div><h5>Case packet</h5><p>Normalize the unit before any probe runs.</p><div class="micro-list"><span>case_id <i>stable</i></span><span>target <i>pass / fail</i></span><span>payload <i>text · image · audio</i></span><span>provenance <i>model + run</i></span></div></div>
+                  <div class="flow-arrow-v3">→</div>
+                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">02 · ROUTE</span><span class="node-icon">◇</span></div><h5>Capability router</h5><p>Match available observables to compatible probes.</p><div class="micro-list"><span>black-box only <i>outputs</i></span><span>white-box allowed <i>internals</i></span><span>unsupported <i>mark missing</i></span></div></div>
+                  <div class="flow-arrow-v3">→</div>
+                  <div class="flow-node-v3 hero"><div class="node-top"><span class="node-step">03 · PROBE</span><span class="node-icon">26</span></div><h5>Analyzer library</h5><p>Different families observe different failure surfaces.</p><div class="analyzer-bank-v3"><div class="analyzer-family"><b>Behavior</b><span>consistency · uncertainty · calibration</span></div><div class="analyzer-family"><b>Reasoning</b><span>termination · perturbation response</span></div><div class="analyzer-family"><b>Internals</b><span>attention · logits · representations</span></div><div class="analyzer-family"><b>Multimodal</b><span>grounding · hallucination · alignment</span></div></div></div>
+                  <div class="flow-arrow-v3">→</div>
+                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">04 · ASSEMBLE</span><span class="node-icon">▦</span></div><h5>Typed signal matrix</h5><p>Values and missingness remain explicit.</p><div class="matrix-v3"><span></span><span>c</span><span>s</span><span>g</span><span>u</span><span>001</span><i class="on"></i><i class="on"></i><i class="na"></i><i class="on"></i><span>002</span><i class="on"></i><i></i><i class="on"></i><i class="on"></i><span>003</span><i class="na"></i><i class="on"></i><i class="on"></i><i></i></div></div>
                 </div>
-                <div class="stage-notes">
-                  <div class="stage-note"><b>Input</b><span>Model runs + modality</span></div>
-                  <div class="stage-note"><b>Agent does</b><span>Route → probe → record coverage</span></div>
-                  <div class="stage-note"><b>Output</b><span>Per-case signals for M2</span></div>
-                </div>
+                <div class="flow-rail"><span class="rail-label">Quality rail</span><div class="rail-item">Coverage by signal and subgroup</div><span class="rail-arrow">→</span><div class="rail-item">Missing reason, never silent imputation</div><span class="rail-arrow">→</span><div class="rail-item">Case-level provenance retained</div></div>
+                <div class="flowboard-foot"><div><span>Boundary</span><b>Behavior is observed; cause is not yet claimed.</b></div><div><span>Handoff fields</span><div class="field-line"><code>case_id</code><code>target</code><code>signal.*</code><code>coverage</code><code>missing_reason</code><code>provenance</code></div></div><div class="next"><span>Next</span><b>M2 · screen structure →</b></div></div>
               </div>
-              <div class="stage-deep">
-                <div class="stage-question"><span>Stage question</span><b>What observable behavior separates failures from passes?</b></div>
-                <div class="stage-controls">
-                  <div class="stage-control"><i>01</i><b>Normalize cases</b><span>Preserve stable IDs, labels, modality and model provenance.</span></div>
-                  <div class="stage-control"><i>02</i><b>Route analyzers</b><span>Run only probes compatible with the available outputs and internals.</span></div>
-                  <div class="stage-control"><i>03</i><b>Type signals</b><span>Record value, direction, scope and missingness instead of flattening everything.</span></div>
-                  <div class="stage-control"><i>04</i><b>Audit coverage</b><span>Count which cases and groups each signal actually measured.</span></div>
-                </div>
-                <div class="stage-contract">
-                  <div class="contract-cell"><span class="contract-k">Handoff record</span><b>Per-case signal table</b><p>One traceable row per case; no silent imputation.</p></div>
-                  <div class="contract-cell"><span class="contract-k">Required fields</span><div class="contract-fields"><code>case_id</code><code>target</code><code>signal.*</code><code>coverage</code><code>missing_reason</code><code>provenance</code></div></div>
-                  <div class="contract-cell contract-next"><span class="contract-k">Next consumer</span><b>M2 · Explore →</b></div>
-                </div>
-              </div>
-              <div class="stage-gate"><b>Boundary</b><p>Behavior, not cause. Missing probes stay visibly missing.</p></div>
             </div>
           </details>
 
-          <details class="stage-dossier">
+          <details class="stage-dossier combo">
             <summary>
-              <span class="stage-id">M2</span>
-              <span class="stage-name"><b>Explore</b><span>find structure</span></span>
-              <span class="stage-purpose">Screen measured signals and expose patterns worth explaining.</span>
+              <span class="stage-id combo">M2–M3</span>
+              <span class="stage-name"><b>Explore → Diagnose</b><span>find structure · freeze mechanisms</span></span>
+              <span class="stage-purpose">Turn measured associations into competing, falsifiable test specifications.</span>
               <span class="stage-open">Stage details</span>
             </summary>
             <div class="stage-body">
-              <div class="stage-story">
-                <div class="stage-viz" role="img" aria-label="M2 forest view of four candidate behavioral signals; one survives discovery-time multiplicity correction">
-                  <div class="viz-cap"><b>M2 · effect + interval</b><span>discovery split</span></div>
-                  <div class="forest-mini">
-                    <div class="forest-row hit"><span>signal A</span><div class="forest-track" style="--lo:62%;--hi:89%;--dot:76%"><i></i><b></b></div><em>survives</em></div>
-                    <div class="forest-row"><span>signal B</span><div class="forest-track" style="--lo:38%;--hi:68%;--dot:54%"><i></i><b></b></div><em>screened</em></div>
-                    <div class="forest-row"><span>signal C</span><div class="forest-track" style="--lo:27%;--hi:58%;--dot:43%"><i></i><b></b></div><em>screened</em></div>
-                    <div class="forest-row"><span>signal D</span><div class="forest-track" style="--lo:45%;--hi:73%;--dot:59%"><i></i><b></b></div><em>screened</em></div>
-                  </div>
-                  <div class="forest-axis"><span>less failure</span><span>0</span><span>more failure</span></div>
-                  <div class="data-preview evidence-preview" aria-label="Field-level schema and decision patterns for M2 ranked evidence records">
-                    <div class="data-row header"><span>signal</span><span>n</span><span>effect + interval</span><span>evidence</span><span>decision</span></div>
-                    <div class="data-row"><span>survivor</span><span>n_valid</span><span class="present">direction · excludes 0</span><span>adjusted</span><span class="present">advance</span></div>
-                    <div class="data-row"><span>screened</span><span>n_valid</span><span>interval crosses 0</span><span>adjusted</span><span>screen out</span></div>
-                  </div>
-                  <div class="stage-bridge" role="img" aria-label="The M2 to M3 bridge turns a discovery-time signal into competing mechanisms, testable predictions, and frozen hypothesis specifications">
-                    <div class="bridge-node"><span>M2 survivor</span><b>effect + interval</b></div><span class="bridge-arrow">→</span>
-                    <div class="bridge-node"><span>M3 alternatives</span><b>mechanism A / B</b></div><span class="bridge-arrow">→</span>
-                    <div class="bridge-node"><span>observable claim</span><b>prediction + control</b></div><span class="bridge-arrow">→</span>
-                    <div class="bridge-node"><span>freeze</span><b>test + falsifier</b></div>
-                  </div>
+              <div class="flowboard" role="img" aria-label="Combined M2 and M3 flowchart: screen the M1 signal table with effect sizes and intervals, correct the discovery search, generate competing mechanisms, derive observable predictions and falsifiers, then freeze the test specification for M5">
+                <div class="flowboard-head"><div><span class="flowboard-kicker">M2 discovery → M3 mechanism design</span><h4>Which pattern deserves a test—and how could it lose?</h4></div><div class="flowboard-out"><span>Output</span><b>Frozen hypothesis specifications</b></div></div>
+                <div class="flow-sequence m23-sequence">
+                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">01 · M2 INPUT</span><span class="node-icon">▦</span></div><h5>Signal table</h5><p>Discovery rows only, with coverage attached.</p><div class="matrix-v3"><span></span><span>a</span><span>b</span><span>c</span><span>d</span><span>001</span><i class="on"></i><i></i><i class="on"></i><i></i><span>002</span><i></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+                  <div class="flow-arrow-v3">→</div>
+                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">02 · ESTIMATE</span><span class="node-icon">±</span></div><h5>Effect + interval</h5><p>Magnitude, direction and uncertainty travel together.</p><div class="mini-forest-v3"><div class="mf-row hit"><span>A</span><div class="mf-line" style="--lo:60%;--hi:90%;--dot:76%"></div></div><div class="mf-row"><span>B</span><div class="mf-line" style="--lo:35%;--hi:66%;--dot:52%"></div></div><div class="mf-row"><span>C</span><div class="mf-line" style="--lo:25%;--hi:59%;--dot:43%"></div></div><div class="mf-row"><span>D</span><div class="mf-line" style="--lo:43%;--hi:72%;--dot:58%"></div></div></div></div>
+                  <div class="flow-arrow-v3">→</div>
+                  <div class="flow-node-v3 hero"><div class="node-top"><span class="node-step">03 · SCREEN</span><span class="node-icon">q</span></div><h5>Multiplicity funnel</h5><p>Many probes enter; corrected survivors leave as leads.</p><div class="funnel-v3"><i style="--w:100%;--op:.35"></i><i style="--w:78%;--op:.5"></i><i style="--w:55%;--op:.7"></i><i style="--w:28%;--op:1"></i></div></div>
+                  <div class="flow-arrow-v3">→</div>
+                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">04 · M3 COMPETE</span><span class="node-icon">H</span></div><h5>Mechanism workshop</h5><p>One survivor must support multiple possible explanations.</p><div class="hyp-stack-v3"><div class="hyp-row-v3"><b>H1</b><span>mechanism A</span><em>prediction ↗</em></div><div class="hyp-row-v3"><b>H2</b><span>mechanism B</span><em>prediction ↘</em></div><div class="hyp-row-v3"><b>H3</b><span>alternative C</span><em>null pattern</em></div></div></div>
+                  <div class="flow-arrow-v3">→</div>
+                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">05 · FREEZE</span><span class="node-icon">▣</span></div><h5>Test specification</h5><p>Lock the claim before sealed evidence is visible.</p><div class="micro-list"><span>statement <i>exact</i></span><span>prediction <i>direction</i></span><span>control <i>matched</i></span><span>falsifier <i>decision rule</i></span></div><div class="freeze-gate-v3">FROZEN FOR M5</div></div>
                 </div>
-                <div class="stage-notes">
-                  <div class="stage-note"><b>Input</b><span>M1 signal matrix</span></div>
-                  <div class="stage-note"><b>Agent does</b><span>Test → correct → rank → plot</span></div>
-                  <div class="stage-note"><b>Output</b><span>Effects, intervals, evidence chain</span></div>
-                </div>
+                <div class="flow-rail"><span class="rail-label">Evidence chain</span><div class="rail-item">Test matches signal type</div><span class="rail-arrow">→</span><div class="rail-item">Effect, interval and adjusted evidence retained</div><span class="rail-arrow">→</span><div class="rail-item">Every mechanism receives an explicit falsifier</div></div>
+                <div class="flowboard-foot"><div><span>Boundary</span><b>Discovery selects what to test; it cannot decide what is true.</b></div><div><span>Frozen fields</span><div class="field-line"><code>hypothesis_id</code><code>statement</code><code>prediction</code><code>test</code><code>control</code><code>threshold</code><code>falsifier</code></div></div><div class="next"><span>Next</span><b>M5 · held-out adjudication →</b></div></div>
               </div>
-              <div class="stage-deep">
-                <div class="stage-question"><span>Stage question</span><b>Which measured signals are reliably associated with failure on discovery data?</b></div>
-                <div class="stage-controls">
-                  <div class="stage-control"><i>01</i><b>Select the test</b><span>Match paired, continuous, categorical or sequential evidence to its valid test.</span></div>
-                  <div class="stage-control"><i>02</i><b>Estimate magnitude</b><span>Report direction, effect size and uncertainty—not significance alone.</span></div>
-                  <div class="stage-control"><i>03</i><b>Correct the search</b><span>Account for the many signals and subgroups screened during discovery.</span></div>
-                  <div class="stage-control"><i>04</i><b>Build evidence chain</b><span>Rank survivors with plots, coverage and alternative explanations attached.</span></div>
-                </div>
-                <div class="stage-contract">
-                  <div class="contract-cell"><span class="contract-k">Handoff record</span><b>Ranked evidence cards</b><p>Leads carry their uncertainty and coverage forward.</p></div>
-                  <div class="contract-cell"><span class="contract-k">Required fields</span><div class="contract-fields"><code>signal</code><code>n</code><code>effect</code><code>interval</code><code>test</code><code>adjustment</code><code>coverage</code></div></div>
-                  <div class="contract-cell contract-next"><span class="contract-k">Next consumer</span><b>M3 · Diagnose →</b></div>
-                </div>
-              </div>
-              <div class="stage-gate"><b>Boundary</b><p>Discovery-time survivors are leads. M5 owns the verdict.</p></div>
-            </div>
-          </details>
-
-          <details class="stage-dossier">
-            <summary>
-              <span class="stage-id">M3</span>
-              <span class="stage-name"><b>Diagnose</b><span>form mechanisms</span></span>
-              <span class="stage-purpose">Convert patterns into falsifiable explanations.</span>
-              <span class="stage-open">Stage details</span>
-            </summary>
-            <div class="stage-body">
-              <div class="stage-story">
-                <div class="stage-viz" role="img" aria-label="M3 turns an observed pattern into competing mechanisms, each paired with an explicit falsifier">
-                  <div class="viz-cap"><b>M3 · two falsifiable hypotheses</b><span>pattern → mechanism → falsifier</span></div>
-                  <div class="hyp-lanes">
-                    <div class="hyp-lane"><span>H1</span><div class="hyp-chain"><div class="hyp-box">observed<br>pattern</div><span class="flow-arrow">→</span><div class="hyp-box">mechanism A</div><span class="flow-arrow">→</span><div class="hyp-box">test that can fail</div></div></div>
-                    <div class="hyp-lane"><span>H2</span><div class="hyp-chain"><div class="hyp-box">same<br>evidence</div><span class="flow-arrow">→</span><div class="hyp-box">mechanism B</div><span class="flow-arrow">→</span><div class="hyp-box">competing test</div></div></div>
-                  </div>
-                  <div class="hyp-freeze" aria-label="Fields frozen for each M3 hypothesis before held-out testing"><div><span>Statement</span><b>Mechanism claim</b></div><div><span>Prediction</span><b>Expected direction</b></div><div><span>Test</span><b>Control + statistic</b></div><div><span>Falsifier</span><b>Decision rule</b></div></div>
-                </div>
-                <div class="stage-notes">
-                  <div class="stage-note"><b>Input</b><span>M2 evidence chain</span></div>
-                  <div class="stage-note"><b>Agent does</b><span>Explain → compete → preregister</span></div>
-                  <div class="stage-note"><b>Output</b><span>Frozen hypotheses + test plans</span></div>
-                </div>
-              </div>
-              <div class="stage-deep">
-                <div class="stage-question"><span>Stage question</span><b>What mechanism could explain the pattern—and what observation would prove it wrong?</b></div>
-                <div class="stage-controls">
-                  <div class="stage-control"><i>01</i><b>Draft alternatives</b><span>Generate competing mechanisms from the same evidence, not one favored story.</span></div>
-                  <div class="stage-control"><i>02</i><b>Derive predictions</b><span>Translate each mechanism into an observable expected association.</span></div>
-                  <div class="stage-control"><i>03</i><b>Design a test</b><span>Specify intervention, control, statistic and expected direction.</span></div>
-                  <div class="stage-control"><i>04</i><b>Freeze the claim</b><span>Lock the test and decision rule before any sealed result is visible.</span></div>
-                </div>
-                <div class="stage-contract">
-                  <div class="contract-cell"><span class="contract-k">Handoff record</span><b>Frozen hypothesis specifications</b><p>Every explanation arrives with a way to lose.</p></div>
-                  <div class="contract-cell"><span class="contract-k">Required fields</span><div class="contract-fields"><code>hypothesis_id</code><code>statement</code><code>prediction</code><code>test</code><code>control</code><code>threshold</code><code>falsifier</code></div></div>
-                  <div class="contract-cell contract-next"><span class="contract-k">Next consumer</span><b>M5 · Verify →</b></div>
-                </div>
-              </div>
-              <div class="stage-gate"><b>Gate</b><p>No falsifier, no advancement—plausibility alone is not evidence.</p></div>
             </div>
           </details>
 
@@ -799,42 +769,24 @@
             <summary>
               <span class="stage-id">M5</span>
               <span class="stage-name"><b>Verify</b><span>held-out adjudication</span></span>
-              <span class="stage-purpose">Decide which frozen explanations survive new evidence.</span>
+              <span class="stage-purpose">Execute frozen tests on sealed cases and route each verdict.</span>
               <span class="stage-open">Stage details</span>
             </summary>
             <div class="stage-body">
-              <div class="stage-story">
-                <div class="stage-viz" role="img" aria-label="The committed example splits 606 cases before exploration into 364 discovery and 242 sealed cases; held-out adjudication confirms one of four candidate signals and refutes three">
-                  <div class="viz-cap"><b>M5 · held-out adjudication</b><span>committed example</span></div>
-                  <div class="split-flow">
-                    <div class="split-source"><b>606</b><span>cases split first</span></div>
-                    <span class="flow-arrow">→</span>
-                    <div class="split-branches"><div class="split-branch"><span>DISCOVERY</span><b>364</b></div><div class="split-branch sealed"><span>SEALED</span><b>242</b></div></div>
-                  </div>
-                  <div class="verdict-mini"><span class="yes">✓ 1 confirmed</span><span class="no">× 3 refuted</span></div>
-                  <div class="verdict-routes" aria-label="M5 verdicts route to repair, renewed probing, or additional evidence"><div class="verdict-route yes"><b>✓ SUPPORTED</b><span>advance mechanism to M4</span></div><div class="verdict-route no"><b>× REFUTED</b><span>return to M1/M3</span></div><div class="verdict-route maybe"><b>· INCONCLUSIVE</b><span>seek power; do not promote</span></div></div>
+              <div class="flowboard" role="img" aria-label="M5 flowchart: combine frozen hypothesis specifications with sealed case IDs, execute the test without revision, correct and grade the result, then route supported, refuted and inconclusive verdicts differently">
+                <div class="flowboard-head"><div><span class="flowboard-kicker">M5 · isolated confirmation</span><h4>What survives evidence that discovery never touched?</h4></div><div class="flowboard-out"><span>Output</span><b>Held-out verdict records</b></div></div>
+                <div class="flow-sequence verify-sequence">
+                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">01 · TWO INPUTS</span><span class="node-icon">2</span></div><h5>Precommitted packet</h5><div class="input-stack-v3"><div class="input-card-v3"><span>FROM M3</span><b>Frozen test specs</b></div><div class="input-card-v3 locked"><span>LOCKED VAULT</span><b>Sealed case IDs</b></div></div><div class="micro-list"><span>606 cases <i>split first</i></span><span>discovery <i>364</i></span><span>sealed <i>242</i></span></div></div>
+                  <div class="flow-arrow-v3">→</div>
+                  <div class="flow-node-v3 dark"><div class="node-top"><span class="node-step">02 · EXECUTE</span><span class="node-icon">▣</span></div><h5>Frozen runner</h5><p>Open sealed IDs only after the test and decision rule are locked.</p><div class="micro-list"><span>hypothesis edits <i>blocked</i></span><span>test substitution <i>blocked</i></span><span>case leakage <i>blocked</i></span></div></div>
+                  <div class="flow-arrow-v3">→</div>
+                  <div class="flow-node-v3 hero"><div class="node-top"><span class="node-step">03 · GRADE</span><span class="node-icon">α</span></div><h5>Evidence gate</h5><p>Apply the frozen multiplicity rule and preserve uncertainty.</p><div class="micro-list"><span>effect <i>signed</i></span><span>interval <i>retained</i></span><span>multiplicity <i>applied</i></span></div></div>
+                  <div class="flow-arrow-v3">→</div>
+                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">04 · ROUTE</span><span class="node-icon">↯</span></div><h5>Three verdict paths</h5><div class="verdict-fan-v3"><div class="verdict-card-v3 yes"><b>✓ SUPPORTED</b><span>advance mechanism to M4</span></div><div class="verdict-card-v3 no"><b>× REFUTED</b><span>return to probing / diagnosis</span></div><div class="verdict-card-v3 maybe"><b>· INCONCLUSIVE</b><span>seek power; do not promote</span></div></div></div>
                 </div>
-                <div class="stage-notes">
-                  <div class="stage-note"><b>Input</b><span>Frozen hypothesis specs + sealed cases</span></div>
-                  <div class="stage-note"><b>Agent does</b><span>Run test → correct → grade</span></div>
-                  <div class="stage-note"><b>Output</b><span>Supported / refuted / inconclusive</span></div>
-                </div>
+                <div class="sealed-rule"><b>SEALED BOUNDARY</b><span>No hypothesis or test edits after held-out identities are opened.</span></div>
+                <div class="flowboard-foot"><div><span>Committed example</span><b>1 confirmed · 3 refuted</b></div><div><span>Verdict fields</span><div class="field-line"><code>hypothesis_id</code><code>effect</code><code>uncertainty</code><code>multiplicity</code><code>verdict</code><code>reason</code></div></div><div class="next"><span>Next</span><b>Supported → M4</b></div></div>
               </div>
-              <div class="stage-deep">
-                <div class="stage-question"><span>Stage question</span><b>Which frozen explanations survive evidence that discovery never touched?</b></div>
-                <div class="stage-controls">
-                  <div class="stage-control"><i>01</i><b>Load sealed IDs</b><span>Confirm discovery artifacts never contain the held-out case identities.</span></div>
-                  <div class="stage-control"><i>02</i><b>Execute as frozen</b><span>Run the declared test without revising the hypothesis after results appear.</span></div>
-                  <div class="stage-control"><i>03</i><b>Correct and grade</b><span>Apply the declared multiplicity rule and preserve uncertainty.</span></div>
-                  <div class="stage-control"><i>04</i><b>Route the verdict</b><span>Supported, refuted and inconclusive claims take different next actions.</span></div>
-                </div>
-                <div class="stage-contract">
-                  <div class="contract-cell"><span class="contract-k">Handoff record</span><b>Held-out verdict records</b><p>A verdict includes the result and why that grade was assigned.</p></div>
-                  <div class="contract-cell"><span class="contract-k">Required fields</span><div class="contract-fields"><code>hypothesis_id</code><code>effect</code><code>uncertainty</code><code>multiplicity</code><code>verdict</code><code>reason</code></div></div>
-                  <div class="contract-cell contract-next"><span class="contract-k">Next consumer</span><b>Supported → M4</b></div>
-                </div>
-              </div>
-              <div class="stage-gate"><b>Gate</b><p>Only untouched evidence can promote a pattern to a verdict.</p></div>
             </div>
           </details>
 
@@ -842,40 +794,28 @@
             <summary>
               <span class="stage-id">M4</span>
               <span class="stage-name"><b>Repair</b><span>intervene and compare</span></span>
-              <span class="stage-purpose">Climb from the cheapest intervention to the allowed ceiling.</span>
+              <span class="stage-purpose">Search the least invasive tier, freeze a winner, and run a paired re-test.</span>
               <span class="stage-open">Stage details</span>
             </summary>
             <div class="stage-body">
-              <div class="stage-story">
-                <div class="stage-viz" role="img" aria-label="M4 tries progressively deeper repair tiers; within a tier it selects candidates on discovery data, freezes one winner, and compares it with the baseline on paired held-out cases">
-                  <div class="viz-cap"><b>M4 · search, freeze, re-test</b><span>cheapest tier first</span></div>
-                  <div class="repair-viz">
-                    <div class="mini-ladder"><div class="mini-rung"><b>L1</b><span>prompt</span><em>flat</em></div><div class="mini-rung"><b>L2</b><span>scaffold</span><em>flat</em></div><div class="mini-rung"><b>L3b</b><span>internals</span><em>flat</em></div><div class="mini-rung next"><b>L4</b><span>parameters</span><em>next ↑</em></div></div>
-                    <div class="freeze-flow"><div class="freeze-col"><span>candidate A</span><span class="chosen">winner B</span><span>candidate C</span></div><span class="flow-arrow">→</span><div class="paired-box"><b>freeze B</b><small>held-out pairs<br>B vs baseline</small></div></div>
-                  </div>
-                  <div class="paired-ledger" aria-label="M4 compares the frozen repair candidate with an unchanged baseline on paired cases and records rescues, harms and unchanged outcomes"><div class="paired-side"><span>UNCHANGED BASELINE</span><b>same cases · same evaluator</b></div><div class="paired-outcomes"><span class="rescue">rescue</span><span class="harm">harm</span><span>unchanged</span></div><div class="paired-side"><span>FROZEN CANDIDATE</span><b>paired delta + decision</b></div></div>
+              <div class="flowboard" role="img" aria-label="M4 flowchart: select the least invasive repair tier consistent with the verified mechanism, search candidates on discovery data, freeze one winner, compare it with an unchanged baseline on paired held-out cases, then ship, stop or escalate">
+                <div class="flowboard-head"><div><span class="flowboard-kicker">M4 · evidence-matched intervention</span><h4>What is the cheapest repair that holds on re-test?</h4></div><div class="flowboard-out"><span>Output</span><b>Repair decision ledger</b></div></div>
+                <div class="repair-stairs">
+                  <div class="repair-step-v3" style="--rise:18px"><b>L1 · INPUT</b><span>prompt / instructions</span><em>cheapest · least invasive</em></div>
+                  <div class="repair-step-v3" style="--rise:12px"><b>L2 · SCAFFOLD</b><span>tools / multi-call</span><em>unchanged model</em></div>
+                  <div class="repair-step-v3" style="--rise:6px"><b>L3 · INTERNALS</b><span>read / write state</span><em>deeper intervention</em></div>
+                  <div class="repair-step-v3 hero" style="--rise:0"><b>L4 · PARAMETERS</b><span>fine-tune / adapter</span><em>highest allowed ceiling</em></div>
                 </div>
-                <div class="stage-notes">
-                  <div class="stage-note"><b>Input</b><span>Verified mechanism + tier ceiling</span></div>
-                  <div class="stage-note"><b>Agent does</b><span>Generate → select → freeze → re-test</span></div>
-                  <div class="stage-note"><b>Output</b><span>Validated fix or escalation</span></div>
+                <div class="repair-lab-v3">
+                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">01 · SEARCH</span><span class="node-icon">3</span></div><h5>Candidate lab</h5><p>Discovery-side comparison only.</p><div class="candidate-stack-v3"><span>candidate A</span><span class="chosen">winner B</span><span>candidate C</span></div></div>
+                  <div class="flow-arrow-v3">→</div>
+                  <div class="flow-node-v3 dark"><div class="node-top"><span class="node-step">02 · FREEZE</span><span class="node-icon">▣</span></div><h5>Lock winner B</h5><p>Candidate, baseline, evaluator and success rule become immutable.</p></div>
+                  <div class="flow-arrow-v3">→</div>
+                  <div class="flow-node-v3 hero"><div class="node-top"><span class="node-step">03 · PAIRED RE-TEST</span><span class="node-icon">↔</span></div><h5>Same cases, two arms</h5><p>Frozen candidate versus unchanged baseline.</p><div class="paired-board-v3"><span class="rescue">rescue</span><span class="harm">harm</span><span>both correct</span><span>both wrong</span></div></div>
                 </div>
+                <div class="flow-rail"><span class="rail-label">Decision loop</span><div class="rail-item">Beats baseline → ship verified update</div><span class="rail-arrow">|</span><div class="rail-item">Flat or harmful → stop candidate</div><span class="rail-arrow">|</span><div class="rail-item">Mechanism still valid → escalate one tier ↺</div></div>
+                <div class="flowboard-foot"><div><span>Gate</span><b>Search winner ≠ validated fix.</b></div><div><span>Decision fields</span><div class="field-line"><code>tier</code><code>candidate</code><code>baseline</code><code>paired_delta</code><code>rescues</code><code>harms</code><code>decision</code></div></div><div class="next"><span>Next</span><b>Ship, stop, or escalate ↺</b></div></div>
               </div>
-              <div class="stage-deep">
-                <div class="stage-question"><span>Stage question</span><b>What is the least invasive intervention that improves the verified failure mode?</b></div>
-                <div class="stage-controls">
-                  <div class="stage-control"><i>01</i><b>Choose the tier</b><span>Start at the cheapest allowed intervention consistent with the mechanism.</span></div>
-                  <div class="stage-control"><i>02</i><b>Search candidates</b><span>Generate and compare options only on discovery-side evidence.</span></div>
-                  <div class="stage-control"><i>03</i><b>Freeze a winner</b><span>Lock candidate, baseline, evaluator and success rule before confirmation.</span></div>
-                  <div class="stage-control"><i>04</i><b>Run paired re-test</b><span>Count improvements, rescues and harms on the same untouched cases.</span></div>
-                </div>
-                <div class="stage-contract">
-                  <div class="contract-cell"><span class="contract-k">Handoff record</span><b>Repair decision ledger</b><p>Ship, escalate or stop—with the paired comparison attached.</p></div>
-                  <div class="contract-cell"><span class="contract-k">Required fields</span><div class="contract-fields"><code>tier</code><code>candidate</code><code>baseline</code><code>paired_delta</code><code>rescues</code><code>harms</code><code>decision</code></div></div>
-                  <div class="contract-cell contract-next"><span class="contract-k">Next action</span><b>Ship or escalate ↺</b></div>
-                </div>
-              </div>
-              <div class="stage-gate"><b>Gate</b><p>Search winner ≠ fix. It must beat baseline on untouched pairs.</p></div>
             </div>
           </details>
         </div>
