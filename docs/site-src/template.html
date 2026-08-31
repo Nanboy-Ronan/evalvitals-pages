@@ -9,32 +9,32 @@
   @font-face { font-family:'Plex Mono'; font-style:normal; font-weight:600; font-display:swap; src: __FONT_PLEXMONO_600_SRC__; }
 
   /* ============ TOKENS — light (default) ============
-     Brand teal continues the original evalvitals.com accent. The other three
-     are the loop's own vocabulary — confirmed / refuted / pending are literal
-     verdict states the run produces, not decorative categories. */
+     Blue follows the paper-figure system: #3D8DFF is the method accent,
+     #EAF4FF carries grouped structure, and green/red are reserved for literal
+     held-out verdicts rather than decorative categories. */
   :root{
-    --bg:#f5f6f5; --surface:#ffffff; --surface-2:#eef1f0; --surface-3:#e2e7e5;
-    --border:#dbe1de; --border-strong:#c2ccc7;
-    --text-primary:#0e1614; --text-secondary:#3d4c48; --text-muted:#748680;
-    --text-on-accent:#f7faf9;
+    --bg:#f7f8fa; --surface:#ffffff; --surface-2:#f4f4f4; --surface-3:#ecedef;
+    --border:#d9dce1; --border-strong:#c5cad1;
+    --text-primary:#0b0d0f; --text-secondary:#5b626b; --text-muted:#727982;
+    --text-on-accent:#ffffff;
 
-    --brand:#0b6e6e;         /* interactive / general accent */
-    --brand-soft:#0b6e6e17;
-    --confirmed:#1f7a3d;     /* hypothesis held, tier built */
-    --confirmed-soft:#1f7a3d17;
-    --refuted:#b03a2e;       /* hypothesis rejected */
-    --refuted-soft:#b03a2e17;
-    --pending:#8a5e0b;       /* inconclusive / escalate / in progress */
-    --pending-soft:#8a5e0b17;
+    --brand:#3d8dff;         /* method / interaction / process */
+    --brand-soft:#eaf4ff;
+    --confirmed:#39a96b;     /* hypothesis held, tier built */
+    --confirmed-soft:#e7f4ec;
+    --refuted:#d45656;       /* hypothesis rejected */
+    --refuted-soft:#f9eaea;
+    --pending:#a96813;       /* inconclusive / escalate / in progress */
+    --pending-soft:#fff3df;
 
     /* Ordinal ramp — single hue (brand), monotone lightness — for "position in
        an ordered sequence" charts (repair-tier depth). Validated with
        scripts/validate_palette.js --ordinal: monotone L, adjacent ΔL >= 0.06,
        light end >= 2:1 on --surface. Do not eyeball a replacement; re-run it. */
-    --ramp-1:#85b6b6; --ramp-2:#67a4a4; --ramp-3:#489393; --ramp-4:#2a8181; --ramp-5:#0b6e6e;
+    --ramp-1:#c8e4ff; --ramp-2:#a9d5ff; --ramp-3:#82beff; --ramp-4:#5ca4ff; --ramp-5:#3d8dff;
 
-    --grid-line:#d6dbd8;
-    --shadow:0 20px 50px -30px rgba(14,22,20,.35);
+    --grid-line:#e1e4e8;
+    --shadow:0 20px 50px -30px rgba(11,13,15,.28);
     --font-display:'Fraunces Hero', ui-serif, Georgia, serif;
     --font-head:'Fraunces Head', ui-serif, Georgia, serif;
     --font-quote:'Fraunces Quote', ui-serif, Georgia, serif;
@@ -43,29 +43,29 @@
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --bg:#0a0f0e; --surface:#101816; --surface-2:#161f1c; --surface-3:#1d2723;
-      --border:#25322d; --border-strong:#34433c;
-      --text-primary:#eaf1ee; --text-secondary:#a9bcb5; --text-muted:#6f8279;
-      --text-on-accent:#0a0f0e;
-      --brand:#4fb3b3; --brand-soft:#4fb3b31f;
-      --confirmed:#4fbe73; --confirmed-soft:#4fbe731f;
-      --refuted:#e0725f; --refuted-soft:#e0725f1f;
-      --pending:#d2a03a; --pending-soft:#d2a03a1f;
-      --ramp-1:#315754; --ramp-2:#386d6b; --ramp-3:#408482; --ramp-4:#479b9b; --ramp-5:#4fb3b3;
-      --grid-line:#1c2622; --shadow:0 20px 60px -25px rgba(0,0,0,.6);
+      --bg:#0b0d0f; --surface:#11151b; --surface-2:#181e27; --surface-3:#222a35;
+      --border:#293342; --border-strong:#3b485a;
+      --text-primary:#f7f8fa; --text-secondary:#d9dce1; --text-muted:#9ca2aa;
+      --text-on-accent:#0b0d0f;
+      --brand:#6dcbf4; --brand-soft:#3d8dff26;
+      --confirmed:#62c98d; --confirmed-soft:#39a96b26;
+      --refuted:#ef7a7a; --refuted-soft:#d4565626;
+      --pending:#f0b85a; --pending-soft:#a9681326;
+      --ramp-1:#24466d; --ramp-2:#2b5b8f; --ramp-3:#3371b2; --ramp-4:#3a86d6; --ramp-5:#6dcbf4;
+      --grid-line:#202936; --shadow:0 20px 60px -25px rgba(0,0,0,.65);
     }
   }
   :root[data-theme="dark"]{
-    --bg:#0a0f0e; --surface:#101816; --surface-2:#161f1c; --surface-3:#1d2723;
-    --border:#25322d; --border-strong:#34433c;
-    --text-primary:#eaf1ee; --text-secondary:#a9bcb5; --text-muted:#6f8279;
-    --text-on-accent:#0a0f0e;
-    --brand:#4fb3b3; --brand-soft:#4fb3b31f;
-    --confirmed:#4fbe73; --confirmed-soft:#4fbe731f;
-    --refuted:#e0725f; --refuted-soft:#e0725f1f;
-    --pending:#d2a03a; --pending-soft:#d2a03a1f;
-    --ramp-1:#315754; --ramp-2:#386d6b; --ramp-3:#408482; --ramp-4:#479b9b; --ramp-5:#4fb3b3;
-    --grid-line:#1c2622; --shadow:0 20px 60px -25px rgba(0,0,0,.6);
+    --bg:#0b0d0f; --surface:#11151b; --surface-2:#181e27; --surface-3:#222a35;
+    --border:#293342; --border-strong:#3b485a;
+    --text-primary:#f7f8fa; --text-secondary:#d9dce1; --text-muted:#9ca2aa;
+    --text-on-accent:#0b0d0f;
+    --brand:#6dcbf4; --brand-soft:#3d8dff26;
+    --confirmed:#62c98d; --confirmed-soft:#39a96b26;
+    --refuted:#ef7a7a; --refuted-soft:#d4565626;
+    --pending:#f0b85a; --pending-soft:#a9681326;
+    --ramp-1:#24466d; --ramp-2:#2b5b8f; --ramp-3:#3371b2; --ramp-4:#3a86d6; --ramp-5:#6dcbf4;
+    --grid-line:#202936; --shadow:0 20px 60px -25px rgba(0,0,0,.65);
   }
 
   /* ============ RESET / BASE ============ */
@@ -129,8 +129,8 @@
     white-space:nowrap;
   }
   .btn:hover{border-color:var(--text-muted);transform:translateY(-1px);}
-  .btn-primary{background:var(--text-primary);color:var(--bg);border-color:var(--text-primary);}
-  .btn-primary:hover{background:var(--text-secondary);border-color:var(--text-secondary);}
+  .btn-primary{background:var(--brand);color:var(--text-on-accent);border-color:var(--brand);}
+  .btn-primary:hover{background:color-mix(in srgb,var(--brand) 88%,#0b0d0f);border-color:color-mix(in srgb,var(--brand) 88%,#0b0d0f);}
   .btn-ghost{border-color:transparent;background:transparent;padding-inline:.3rem;}
   .ctas{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.6rem;}
 
@@ -334,7 +334,7 @@
   .c-ok{color:var(--confirmed);}
   .c-no{color:var(--refuted);}
   .c-warn{color:var(--pending);}
-  .c-proj{color:#8a6eea;} /* projection marker — deliberately outside the brand palette */
+  .c-proj{color:#2e6fc7;}
   .c-cmd{color:var(--text-primary);font-weight:600;}
 
   /* ============ LADDER DEPTH CHART ============
