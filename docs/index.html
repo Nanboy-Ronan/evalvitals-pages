@@ -157,6 +157,9 @@
   .btn-primary{background:var(--brand);color:var(--text-on-accent);border-color:var(--brand);}
   .btn-primary:hover{background:color-mix(in srgb,var(--brand) 88%,#0b0d0f);border-color:color-mix(in srgb,var(--brand) 88%,#0b0d0f);}
   .btn-ghost{border-color:transparent;background:transparent;padding-inline:.3rem;}
+  .btn-demo{border-color:var(--brand);color:var(--brand-ink);background:var(--brand-soft);}
+  .btn-demo:hover{background:var(--brand);border-color:var(--brand);color:var(--text-on-accent);}
+  .btn-demo .demo-dot{width:7px;height:7px;border-radius:50%;background:currentColor;display:inline-block;animation:pulse 2.4s ease-in-out infinite;}
   .ctas{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.6rem;}
 
   /* ============ HERO ============ */
@@ -642,6 +645,7 @@
         <a href="#quickstart">Quickstart</a>
       </nav>
       <div class="navcta">
+        <a class="btn btn-demo" href="report/"><span class="demo-dot"></span>Demo</a>
         <a class="btn btn-ghost" href="https://evalvitals.github.io/evalvitals/" target="_blank" rel="noopener">Docs</a>
         <a class="btn btn-primary" href="https://github.com/evalvitals/evalvitals" target="_blank" rel="noopener">GitHub</a>
       </div>
