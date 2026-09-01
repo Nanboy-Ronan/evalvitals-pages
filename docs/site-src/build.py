@@ -23,7 +23,7 @@ from pathlib import Path
 SRC = Path(__file__).parent
 DOCS = SRC.parent
 
-SITE_URL = "https://evalvitals.github.io/evalvitals-pages/"
+SITE_URL = "https://nanboy-ronan.github.io/evalvitals-pages/"
 TITLE = "EvalVitals — diagnose why a model fails, then verify the fix"
 DESCRIPTION = (
     "EvalVitals is a self-improving loop that probes an open-weight model, "
