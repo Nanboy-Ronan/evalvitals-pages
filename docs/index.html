@@ -414,13 +414,20 @@
   .micro-list i{font-style:normal;color:var(--brand-ink);font-weight:500;}
   .analyzer-bank-v3{display:grid;grid-template-columns:1fr 1fr;gap:.42rem;margin-top:.65rem;}
   .analyzer-family{padding:.48rem;border:1px solid color-mix(in srgb,var(--brand) 30%,var(--border));border-radius:6px;background:var(--surface);}
-  .analyzer-family b{display:block;font-size:.84rem;}.analyzer-family span{display:block;margin-top:.15rem;color:var(--text-secondary);font-size:.79rem;line-height:1.35;}
+  .analyzer-family i{display:block;font-style:normal;font-size:1.05rem;color:var(--brand);margin-bottom:.2rem;}.analyzer-family b{display:block;font-size:.84rem;}.analyzer-family span{display:block;margin-top:.15rem;color:var(--text-secondary);font-size:.79rem;line-height:1.35;}
   .matrix-v3{display:grid;grid-template-columns:2.2rem repeat(4,1fr);gap:3px;margin-top:.65rem;align-items:center;}
   .matrix-v3 span{font-family:var(--font-mono);font-size:.71rem;color:var(--text-secondary);}
   .matrix-v3 i{height:14px;border:1px solid var(--border);border-radius:2px;background:var(--surface-3);}.matrix-v3 i.on{background:var(--brand);border-color:var(--brand);}.matrix-v3 i.na{background:repeating-linear-gradient(135deg,var(--surface-3),var(--surface-3) 3px,var(--surface) 3px,var(--surface) 6px);}
   .flow-rail{display:grid;grid-template-columns:auto 1fr auto 1fr auto 1fr;gap:.55rem;align-items:center;padding:.75rem 1.2rem;border-top:1px solid var(--border);background:var(--surface);}
   .flow-rail.rail-4{grid-template-columns:auto 1fr auto 1fr auto 1fr auto 1fr;}
   .rail-label{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-secondary);font-weight:600;}
+
+  /* ---- rail-tags: a compact icon-pill strip, replaces sentence-in-a-box rails ---- */
+  .rail-tags-v3{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;padding:.75rem 1.2rem;border-top:1px solid var(--border);background:var(--surface);}
+  .rail-tags-v3 .rail-tag-label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-secondary);font-weight:600;margin-right:.15rem;}
+  .rail-tag-v3{display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .6rem;border-radius:999px;background:var(--brand-soft);color:var(--brand-ink);font-family:var(--font-mono);font-size:.66rem;font-weight:600;white-space:nowrap;}
+  .rail-tag-v3::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brand);flex:0 0 auto;}
+  .rail-sep-v3{color:var(--text-muted);font-size:.72rem;}
   .rail-item{padding:.42rem .55rem;border-left:2px solid var(--brand);background:var(--brand-soft);font-size:.79rem;color:var(--text-secondary);}
   .rail-arrow{color:var(--brand);font-family:var(--font-mono);font-size:.87rem;}
   .flowboard-foot{display:grid;grid-template-columns:1fr 1.4fr 1fr;border-top:1px solid var(--border);background:var(--surface);}
@@ -775,12 +782,12 @@
                   <div class="flow-arrow-v3">→</div>
                   <div class="flow-node-v3"><div class="node-top"><span class="node-step">02 · SELECT</span><span class="node-icon">P</span></div><h5 title="Judge reads description, task_domain, success_criteria and target_modalities; picks black-box (outputs only) or white-box (internals) analyzers and records why.">Protocol-guided router</h5><div class="pick-chips-v3"><span class="on">attention</span><span class="on">grounding</span><span>consistency</span><span>logit-lens</span><span>termination</span></div><p>A judge reads the protocol, picks analyzers, records why.</p></div>
                   <div class="flow-arrow-v3">→</div>
-                  <div class="flow-node-v3 hero"><div class="node-top"><span class="node-step">03 · PROBE</span><span class="node-icon">26</span></div><h5>Analyzer library</h5><p>Different families observe different failure surfaces.</p><div class="analyzer-bank-v3"><div class="analyzer-family"><b>Behavior</b><span>consistency · uncertainty · calibration</span></div><div class="analyzer-family"><b>Reasoning</b><span>termination · perturbation response</span></div><div class="analyzer-family"><b>Internals</b><span>attention · logits · representations</span></div><div class="analyzer-family"><b>Multimodal</b><span>grounding · hallucination · alignment</span></div></div></div>
+                  <div class="flow-node-v3 hero"><div class="node-top"><span class="node-step">03 · PROBE</span><span class="node-icon">26</span></div><h5>Analyzer library</h5><div class="analyzer-bank-v3"><div class="analyzer-family"><i>◐</i><b>Behavior</b><span>consistency · uncertainty · calibration</span></div><div class="analyzer-family"><i>↻</i><b>Reasoning</b><span>termination · perturbation response</span></div><div class="analyzer-family"><i>◈</i><b>Internals</b><span>attention · logits · representations</span></div><div class="analyzer-family"><i>⬡</i><b>Multimodal</b><span>grounding · hallucination · alignment</span></div></div></div>
                   <div class="flow-arrow-v3">→</div>
                   <div class="flow-node-v3"><div class="node-top"><span class="node-step">04 · ASSEMBLE</span><span class="node-icon">▦</span></div><h5>Typed signal matrix</h5><p>One measurement per case; missingness stays explicit.</p><div class="matrix-v3"><span></span><span>c</span><span>s</span><span>g</span><span>u</span><span>001</span><i class="on"></i><i class="on"></i><i class="na"></i><i class="on"></i><span>002</span><i class="on"></i><i></i><i class="on"></i><i class="on"></i><span>003</span><i class="na"></i><i class="on"></i><i class="on"></i><i></i></div></div>
                 </div>
-                <div class="flow-rail"><span class="rail-label">Quality rail</span><div class="rail-item">Coverage by signal and subgroup</div><span class="rail-arrow">→</span><div class="rail-item">Missing reason, never silent imputation</div><span class="rail-arrow">→</span><div class="rail-item">Case-level provenance retained</div></div>
-                <div class="flowboard-foot"><div><span>Boundary</span><b>Failure is labeled and behavior is observed; cause is not yet claimed.</b></div><div><span>Handoff fields</span><div class="field-line"><code>case_id</code><code>label</code><code>signal.*</code><code>coverage</code><code>missing_reason</code><code>provenance</code></div></div><div class="next"><span>Next</span><b>M2 · screen structure →</b></div></div>
+                <div class="rail-tags-v3"><span class="rail-tag-label">Quality</span><span class="rail-tag-v3">coverage tracked</span><span class="rail-sep-v3">→</span><span class="rail-tag-v3">no silent fill</span><span class="rail-sep-v3">→</span><span class="rail-tag-v3">provenance kept</span></div>
+                <div class="flowboard-foot"><div><span>Boundary</span><b>Behavior observed, cause not yet claimed.</b></div><div><span>Handoff fields</span><div class="field-line"><code>case_id</code><code>label</code><code>signal.*</code><code>coverage</code><code>missing_reason</code><code>provenance</code></div></div><div class="next"><span>Next</span><b>M2 · screen structure →</b></div></div>
               </div>
             </div>
           </details>
@@ -795,7 +802,6 @@
             <div class="stage-body">
               <div class="flowboard" role="img" aria-label="Combined M2 and M3 flowchart: screen the M1 signal table with effect sizes and intervals, correct the discovery search, generate competing mechanisms, derive observable predictions and falsifiers, then freeze the test specification for M4">
                 <div class="flowboard-head"><div><span class="flowboard-kicker">M2 exploratory data analysis → M3 mechanism design</span><h4>Which pattern deserves a test—and how could it lose?</h4></div><div class="flowboard-out"><span>Output</span><b>Frozen hypothesis specifications</b></div></div>
-                <div class="phase-bar"><div>M2 · EXPLORE + CONFIRM <span>optional descriptive EDA, then the confirmatory stats engine</span></div><div>M3 · DIAGNOSIS <span>compete and freeze mechanisms</span></div></div>
                 <div class="flow-sequence m23-sequence">
                   <div class="flow-node-v3"><div class="node-top"><span class="node-step">01 · FROM M1</span><span class="node-icon">▦</span></div><h5>Signal + label table</h5><p>M1's measurements, joined with pass/fail — the table both paths below share.</p><div class="matrix-v3"><span></span><span>a</span><span>b</span><span>c</span><span>d</span><span>001</span><i class="on"></i><i></i><i class="on"></i><i></i><span>002</span><i></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
                   <div class="flow-arrow-v3">→</div>
@@ -807,8 +813,8 @@
                   <div class="flow-arrow-v3">→</div>
                   <div class="flow-node-v3"><div class="node-top"><span class="node-step">05 · FREEZE</span><span class="node-icon">▣</span></div><h5>Test specification</h5><p>Lock the claim before sealed evidence is visible.</p><div class="field-line"><code>statement</code><code>prediction</code><code>control</code><code>falsifier</code><code>test_design</code></div><div class="freeze-gate-v3">FROZEN FOR M4</div></div>
                 </div>
-                <div class="flow-rail rail-4"><span class="rail-label">Evidence chain</span><div class="rail-item">Explore (optional): agent writes &amp; runs its own <code>analysis.py</code></div><span class="rail-arrow">→</span><div class="rail-item">Confirm: select → run → e-BH correct</div><span class="rail-arrow">→</span><div class="rail-item">Effect, interval and e-value travel together</div><span class="rail-arrow">→</span><div class="rail-item">Verdicts outside the e-BH family are flagged, not hidden</div></div>
-                <div class="flowboard-foot"><div><span>Boundary</span><b>Discovery selects what to test; it cannot decide what is true. An empty test_design is undecidable, not neutral.</b></div><div><span>Frozen fields</span><div class="field-line"><code>hypothesis_id</code><code>statement</code><code>prediction</code><code>test</code><code>control</code><code>threshold</code><code>falsifier</code><code>test_design</code></div></div><div class="next"><span>Next</span><b>M4 · held-out adjudication →</b></div></div>
+                <div class="rail-tags-v3"><span class="rail-tag-label">Evidence</span><span class="rail-tag-v3">writes its own code</span><span class="rail-sep-v3">→</span><span class="rail-tag-v3">e-BH corrected</span><span class="rail-sep-v3">→</span><span class="rail-tag-v3">flagged, not hidden</span></div>
+                <div class="flowboard-foot"><div><span>Boundary</span><b title="An empty test_design is undecidable, not neutral — it returns INCONCLUSIVE forever.">Picks the test, not the truth.</b></div><div><span>Frozen fields</span><div class="field-line"><code>hypothesis_id</code><code>statement</code><code>prediction</code><code>test</code><code>control</code><code>threshold</code><code>falsifier</code><code>test_design</code></div></div><div class="next"><span>Next</span><b>M4 · held-out adjudication →</b></div></div>
               </div>
             </div>
           </details>
@@ -823,7 +829,6 @@
             <div class="stage-body">
               <div class="flowboard" role="img" aria-label="M4 flowchart: combine frozen hypothesis specifications with sealed case IDs, execute the test without revision, grade it against a statistical gate and a protocol-consistency gate, then route supported, refuted and inconclusive verdicts differently">
                 <div class="flowboard-head"><div><span class="flowboard-kicker">M4 · isolated confirmation</span><h4>What survives evidence that discovery never touched?</h4></div><div class="flowboard-out"><span>Output</span><b>Held-out verdict records</b></div></div>
-                <div class="phase-bar"><div>STATISTICAL GATE <span>effect + CI + e-value, e-BH corrected</span></div><div>PROTOCOL GATE <span>consistent with what you set out to test</span></div></div>
                 <div class="flow-sequence verify-sequence">
                   <div class="flow-node-v3"><div class="node-top"><span class="node-step">01 · TWO INPUTS</span><span class="node-icon">2</span></div><h5>Precommitted packet</h5><div class="input-stack-v3"><div class="input-card-v3"><span>FROM M3</span><b>Frozen test specs</b></div><div class="input-card-v3 locked"><span>LOCKED VAULT</span><b>Sealed case IDs</b></div></div><div class="field-line"><code>606 total</code><code>364 discovery</code><code>242 sealed</code></div></div>
                   <div class="flow-arrow-v3">→</div>
@@ -864,8 +869,8 @@
                   <div class="flow-arrow-v3">→</div>
                   <div class="flow-node-v3 hero"><div class="node-top"><span class="node-step">04 · PAIRED RE-TEST</span><span class="node-icon">↔</span></div><h5>Same cases, two arms</h5><p>Frozen candidate versus unchanged baseline.</p><div class="paired-board-v3"><span class="rescue">rescue</span><span class="harm">harm</span><span>both correct</span><span>both wrong</span></div></div>
                 </div>
-                <div class="flow-rail"><span class="rail-label">Decision loop</span><div class="rail-item">Beats baseline → ship verified update</div><span class="rail-arrow">|</span><div class="rail-item">Flat or harmful → stop candidate</div><span class="rail-arrow">|</span><div class="rail-item">Fails, below ceiling → next tier; at ceiling → recommend only</div></div>
-                <div class="flowboard-foot"><div><span>Gate</span><b>Causal evidence ≠ a fix; a fix isn't shipped until it beats baseline.</b></div><div><span>Decision fields</span><div class="field-line"><code>intervention</code><code>tier</code><code>candidate</code><code>baseline</code><code>paired_delta</code><code>rescues</code><code>harms</code><code>decision</code></div></div><div class="next"><span>Next</span><b>Ship, next tier, or new_data → M1 ↺</b></div></div>
+                <div class="rail-tags-v3"><span class="rail-tag-label">Decision</span><span class="rail-tag-v3">beats baseline → ship</span><span class="rail-sep-v3">|</span><span class="rail-tag-v3">flat/harmful → stop</span><span class="rail-sep-v3">|</span><span class="rail-tag-v3" title="Fails below ceiling → next tier; at ceiling → recommend, don't auto-raise.">below ceiling → next tier</span></div>
+                <div class="flowboard-foot"><div><span>Gate</span><b>Cause found ≠ fix shipped.</b></div><div><span>Decision fields</span><div class="field-line"><code>intervention</code><code>tier</code><code>candidate</code><code>baseline</code><code>paired_delta</code><code>rescues</code><code>harms</code><code>decision</code></div></div><div class="next"><span>Next</span><b>Ship, next tier, or new_data → M1 ↺</b></div></div>
               </div>
             </div>
           </details>
