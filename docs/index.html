@@ -621,15 +621,6 @@
   .qs-steps{display:grid;gap:1.2rem;margin-top:1.6rem;}
   .qs-steps .cap{font-family:var(--font-mono);font-size:.74rem;color:var(--text-muted);margin-bottom:.5rem;}
 
-  /* ============ RESEARCH / PAPERS ============ */
-  .papers{display:flex;flex-direction:column;margin-top:1.6rem;}
-  .paper-row{display:flex;justify-content:space-between;gap:1.5rem;padding:.9rem 0;border-top:1px dashed var(--border);}
-  .paper-row:first-child{border-top:none;}
-  .paper-row .t{font-size:.92rem;color:var(--text-primary);max-width:62ch;}
-  .paper-row .t em{font-style:italic;font-family:var(--font-quote);}
-  .paper-row .v{font-family:var(--font-mono);font-size:.76rem;color:var(--text-muted);white-space:nowrap;flex-shrink:0;}
-  .paper-row .v.pre{color:var(--pending);}
-
   /* ============ FOOTER ============ */
   footer{border-top:1px solid var(--border);padding-block:2.5rem;}
   .foot-grid{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:center;}
@@ -649,7 +640,6 @@
         <a href="#ladder">Ladder</a>
         <a href="#trust">Trust</a>
         <a href="#quickstart">Quickstart</a>
-        <a href="#research">Research</a>
       </nav>
       <div class="navcta">
         <a class="btn btn-ghost" href="https://evalvitals.github.io/evalvitals/" target="_blank" rel="noopener">Docs</a>
@@ -1175,30 +1165,6 @@
           <a class="btn" href="https://github.com/evalvitals/evalvitals#quickstart-analyze-your-eval-logs" target="_blank" rel="noopener">Full quickstart guide ↗</a>
           <a class="btn" href="https://github.com/evalvitals/evalvitals/tree/main/examples" target="_blank" rel="noopener">Examples ↗</a>
           <a class="btn" href="https://evalvitals.github.io/evalvitals/analyzers/" target="_blank" rel="noopener">Analyzer Zoo ↗</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ RESEARCH ============ -->
-    <section id="research">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow">06 · Research</span>
-          <h2>The work underneath.</h2>
-          <p>The loop is a productized version of what we do as research: find the mechanism behind a model's failure, then intervene on it and check the intervention held.</p>
-        </div>
-        <div class="papers">
-          <div class="paper-row"><span class="t"><em>Coevoskills:</em> Self-evolving agent skills via co-evolutionary verification</span><span class="v">COLM 2026</span></div>
-          <div class="paper-row"><span class="t">Directional alignment mitigates reward hacking in reinforcement learning for language models</span><span class="v">ICML 2026</span></div>
-          <div class="paper-row"><span class="t"><em>TextResNet:</em> Decoupling and routing optimization signals in compound AI systems via deep residual tuning</span><span class="v">ICML 2026</span></div>
-          <div class="paper-row"><span class="t">When RAG hurts: Diagnosing and mitigating attention distraction in retrieval-augmented LVLMs</span><span class="v">ICML 2026</span></div>
-          <div class="paper-row"><span class="t">On GRPO collapse in Search-R1: The lazy likelihood-displacement death spiral</span><span class="v">ICML 2026</span></div>
-          <div class="paper-row"><span class="t">When single-agent with skills replace multi-agent systems, and when they fail</span><span class="v">Agent Skills 2026</span></div>
-          <div class="paper-row"><span class="t"><em>UltraVR:</em> A diagnostic ultra-resolution image-VQA benchmark for evidence-grounded reasoning</span><span class="v pre">Preprint</span></div>
-        </div>
-        <div class="ctas">
-          <a class="btn btn-primary" href="https://github.com/evalvitals/evalvitals" target="_blank" rel="noopener">github.com/evalvitals</a>
-          <a class="btn" href="https://pypi.org/project/evalvitals/" target="_blank" rel="noopener">pip install evalvitals</a>
         </div>
       </div>
     </section>
