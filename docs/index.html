@@ -388,7 +388,7 @@
   /* ============ STAGE FLOWBOARDS v3 ============ */
   .stage-dossier.combo summary{grid-template-columns:5.3rem minmax(160px,.85fr) minmax(220px,1.6fr) auto;}
   .stage-id.combo{width:4.6rem;}
-  .flowboard{max-width:920px;margin-inline:auto;border:1px solid var(--border);border-radius:12px;background:var(--surface-2);overflow:hidden;}
+  .flowboard{max-width:920px;margin-inline:auto;border:1px solid var(--border);border-radius:12px;background:var(--surface-2);overflow:hidden;overflow-wrap:break-word;}
   .flowboard-head{display:flex;justify-content:space-between;gap:1.1rem;align-items:center;padding:1rem 1.15rem;border-bottom:1px solid var(--border);background:var(--surface);}
   .flowboard-head>.flowboard-mid{flex:1 1 auto;min-width:0;}
   .flowboard-kicker{font-family:var(--font-mono);font-size:.79rem;letter-spacing:.09em;text-transform:uppercase;color:var(--brand-ink);font-weight:600;}
@@ -404,7 +404,7 @@
   .flow-arrow-v3{position:relative;display:grid;place-items:center;min-width:1.5rem;font-size:0;}
   .flow-arrow-v3::before{content:"";width:calc(100% + .4rem);height:2px;background:var(--brand);}
   .flow-arrow-v3::after{content:"";position:absolute;right:-.18rem;top:50%;transform:translateY(-50%);border-block:5px solid transparent;border-left:7px solid var(--brand);}
-  .flow-node-v3{position:relative;padding:1.15rem 1rem;border:1px solid var(--border-strong);border-radius:9px;background:var(--surface);min-width:0;}
+  .flow-node-v3{position:relative;padding:1.15rem 1rem;border:1px solid var(--border-strong);border-radius:9px;background:var(--surface);min-width:0;overflow-wrap:break-word;}
   .flow-node-v3.hero{border-color:var(--brand);background:var(--brand-soft);}
   .flow-node-v3.dark{border-color:#0b0d0f;background:#0b0d0f;color:#fff;}
   .node-top{display:flex;justify-content:space-between;gap:.5rem;align-items:center;margin-bottom:.65rem;}
@@ -805,11 +805,11 @@
                   <div class="flow-arrow-v3">→</div>
                   <div class="flow-node-v3"><div class="node-top"><span class="node-step">02 · EXPLORE</span><span class="node-icon">E</span></div><h5>Optional EDA</h5><div class="pick-chips-v3"><span class="on">peaked_attention</span><span>top1_share</span><span>peripheral_attn</span></div><p>Agent-written code proposes candidates, descriptive only. <b>Highlighted</b> = carries an e-value and enters M3's test family; the rest are flagged, not hidden.</p></div>
                   <div class="flow-arrow-v3">→</div>
-                  <div class="flow-node-v3 hero"><div class="node-top"><span class="node-step">03 · CONFIRM</span><span class="node-icon">q</span></div><h5>Confirmatory stats engine</h5><p>Select → run (effect + CI + e-value) → e-BH correct.</p><div class="funnel-v3"><i style="--w:100%;--op:.35"></i><i style="--w:78%;--op:.5"></i><i style="--w:55%;--op:.7"></i><i style="--w:28%;--op:1"></i></div><p class="mini-note">Confound caught: a p=0.080 catalyst signal was really a 21° temperature gap.</p></div>
+                  <div class="flow-node-v3 hero"><div class="node-top"><span class="node-step">03 · CONFIRM</span><span class="node-icon">q</span></div><h5>Stats engine</h5><p>Select → run (effect + CI + e-value) → e-BH correct.</p><div class="funnel-v3"><i style="--w:100%;--op:.35"></i><i style="--w:78%;--op:.5"></i><i style="--w:55%;--op:.7"></i><i style="--w:28%;--op:1"></i></div><p class="mini-note">Confound caught: a p=0.080 catalyst signal was really a 21° temperature gap.</p></div>
                   <div class="flow-arrow-v3">→</div>
                   <div class="flow-node-v3"><div class="node-top"><span class="node-step">04 · HYPOTHESES</span><span class="node-icon">H</span></div><h5>Competing hypothesis contracts</h5><p>Each contract pins a claim, a target slice, a predicted direction, and the exact test that must confirm it — no test, no hypothesis.</p><div class="hyp-stack-v3"><div class="hyp-row-v3"><b>H1</b><span>peaked_attention<small>McNemar + e-value</small></span><em class="keep">✓ keep</em></div><div class="hyp-row-v3"><b>H2</b><span>top1_share_high<small>bootstrap CI</small></span><em class="reject">✗ reject</em></div><div class="hyp-row-v3"><b>H3</b><span>peripheral_attn<small>bootstrap CI</small></span><em class="reject">✗ reject</em></div></div></div>
                   <div class="flow-arrow-v3">→</div>
-                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">05 · FREEZE</span><span class="node-icon">▣</span></div><h5>Test specification</h5><p>Lock the claim before sealed evidence is visible.</p><div class="field-line"><code>statement</code><code>prediction</code><code>control</code><code>falsifier</code><code>test_design</code></div><div class="freeze-gate-v3">FROZEN FOR M4</div></div>
+                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">05 · FREEZE</span><span class="node-icon">▣</span></div><h5>Test spec</h5><p>Lock the claim before sealed evidence is visible.</p><div class="field-line"><code>statement</code><code>prediction</code><code>control</code><code>falsifier</code><code>test_design</code></div><div class="freeze-gate-v3">FROZEN FOR M4</div></div>
                 </div>
                 <div class="rail-tags-v3"><span class="rail-tag-label">Evidence</span><span class="rail-tag-v3">writes its own code</span><span class="rail-sep-v3">→</span><span class="rail-tag-v3">e-BH corrected</span><span class="rail-sep-v3">→</span><span class="rail-tag-v3">flagged, not hidden</span></div>
                 <div class="flowboard-foot"><div><span>Boundary</span><b>Picks the test, not the truth — an empty test spec returns INCONCLUSIVE forever.</b></div><div><span>Frozen fields</span><div class="field-line"><code>hypothesis_id</code><code>statement</code><code>prediction</code><code>test</code><code>control</code><code>threshold</code><code>falsifier</code><code>test_design</code></div></div><div class="next"><span>Next</span><b>M4 · held-out adjudication →</b></div></div>
