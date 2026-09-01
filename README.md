@@ -1,7 +1,7 @@
 # evalvitals-pages
 
 The EvalVitals landing page. Live at
-**https://nanboy-ronan.github.io/evalvitals-pages/**
+**https://evalvitals.github.io/evalvitals-pages/**
 
 ## Layout
 
@@ -23,7 +23,7 @@ scroll-in animation, copy buttons, and pixel avatars.
 1. Push `docs/` to the `main` branch.
 2. In the GitHub repo: **Settings → Pages → Build and deployment → Source:
    "Deploy from a branch"**, then set **Branch: `main` / folder: `/docs`**.
-3. GitHub publishes it at `https://nanboy-ronan.github.io/evalvitals-pages/`.
+3. GitHub publishes it at `https://evalvitals.github.io/evalvitals-pages/`.
 
 No custom domain is configured. `evalvitals.com` is already bound to a
 different repository (`xxlya/evalvitals-site`) — do not add a `CNAME` file

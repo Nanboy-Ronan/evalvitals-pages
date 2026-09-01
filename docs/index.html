@@ -7,14 +7,14 @@
 <meta name="description" content="EvalVitals is a self-improving loop that probes an open-weight model, diagnoses the mechanism behind its failures, verifies the diagnosis on held-out cases, and builds a repair validated against the unmodified baseline.">
 <meta name="robots" content="index, follow">
 <meta name="keywords" content="LLM evaluation, failure analysis, model diagnosis, interpretability, VLM, hallucination detection, model repair, open-weight models, evalvitals">
-<link rel="canonical" href="https://nanboy-ronan.github.io/evalvitals-pages/">
+<link rel="canonical" href="https://evalvitals.github.io/evalvitals-pages/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A9%BA%3C/text%3E%3C/svg%3E">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="EvalVitals">
 <meta property="og:title" content="EvalVitals — diagnose why a model fails, then verify the fix">
 <meta property="og:description" content="EvalVitals is a self-improving loop that probes an open-weight model, diagnoses the mechanism behind its failures, verifies the diagnosis on held-out cases, and builds a repair validated against the unmodified baseline.">
-<meta property="og:url" content="https://nanboy-ronan.github.io/evalvitals-pages/">
+<meta property="og:url" content="https://evalvitals.github.io/evalvitals-pages/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="EvalVitals — diagnose why a model fails, then verify the fix">
 <meta name="twitter:description" content="EvalVitals is a self-improving loop that probes an open-weight model, diagnoses the mechanism behind its failures, verifies the diagnosis on held-out cases, and builds a repair validated against the unmodified baseline.">
@@ -157,6 +157,9 @@
   .btn-primary{background:var(--brand);color:var(--text-on-accent);border-color:var(--brand);}
   .btn-primary:hover{background:color-mix(in srgb,var(--brand) 88%,#0b0d0f);border-color:color-mix(in srgb,var(--brand) 88%,#0b0d0f);}
   .btn-ghost{border-color:transparent;background:transparent;padding-inline:.3rem;}
+  .btn-demo{border-color:var(--brand);color:var(--brand-ink);background:var(--brand-soft);}
+  .btn-demo:hover{background:var(--brand);border-color:var(--brand);color:var(--text-on-accent);}
+  .btn-demo .demo-dot{width:7px;height:7px;border-radius:50%;background:currentColor;display:inline-block;animation:pulse 2.4s ease-in-out infinite;}
   .ctas{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.6rem;}
 
   /* ============ HERO ============ */
@@ -650,6 +653,7 @@
         <a href="#quickstart">Quickstart</a>
       </nav>
       <div class="navcta">
+        <a class="btn btn-demo" href="report/"><span class="demo-dot"></span>Demo</a>
         <a class="btn btn-ghost" href="https://evalvitals.github.io/evalvitals/" target="_blank" rel="noopener">Docs</a>
         <a class="btn btn-primary" href="https://github.com/evalvitals/evalvitals" target="_blank" rel="noopener">GitHub</a>
       </div>
