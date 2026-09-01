@@ -451,14 +451,16 @@
   .paired-board-v3{display:grid;grid-template-columns:1fr 1fr;gap:.35rem;margin-top:.55rem;}.paired-board-v3 span{padding:.35rem;border:1px solid var(--border);border-radius:4px;font-family:var(--font-mono);font-size:.66rem;text-align:center;}.paired-board-v3 .rescue{color:var(--confirmed);border-color:var(--confirmed);}.paired-board-v3 .harm{color:var(--refuted);border-color:var(--refuted);}
 
   /* ---- case-stream: a strip of pass/fail dots (M1 discover) ---- */
-  .case-stream{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem;}
-  .case-stream i{width:1.15rem;height:1.15rem;border-radius:50%;display:inline-block;}
-  .case-stream i.pass{background:var(--confirmed);}
-  .case-stream i.fail{background:var(--refuted);}
-  .case-stream i.unknown{background:var(--surface-3);border:1px dashed var(--border-strong);}
+  .case-stream{display:flex;gap:.32rem;flex-wrap:nowrap;margin-top:.7rem;}
+  .case-stream i{width:.85rem;height:.85rem;border-radius:3px;display:inline-block;border:1.5px solid;box-sizing:border-box;}
+  .case-stream i.pass{background:var(--confirmed-soft);border-color:var(--confirmed);}
+  .case-stream i.fail{background:var(--refuted-soft);border-color:var(--refuted);}
+  .case-stream i.unknown{background:var(--surface-3);border:1.5px dashed var(--border-strong);}
 
-  /* ---- pick-stack: reuses candidate-stack-v3's chip look for any chosen/unchosen set ---- */
-  .candidate-stack-v3 .excluded{color:var(--text-muted);text-decoration:line-through;opacity:.65;}
+  /* ---- pick-chips: a wrapped row of small tags, some picked, some not ---- */
+  .pick-chips-v3{display:flex;flex-wrap:wrap;gap:.38rem;margin-top:.7rem;}
+  .pick-chips-v3 span{padding:.28rem .55rem;border-radius:999px;font-family:var(--font-mono);font-size:.64rem;border:1px solid var(--border);color:var(--text-muted);background:var(--surface);white-space:nowrap;}
+  .pick-chips-v3 span.on{border-color:var(--brand);background:var(--brand-soft);color:var(--brand-ink);font-weight:600;}
 
   /* ---- gate-and: two gates converging through AND into one verdict (M4) ---- */
   .gate-and-v3{display:grid;justify-items:center;gap:.28rem;margin-top:.7rem;}
@@ -474,13 +476,14 @@
   .blocked-row-v3 span::before{content:"⊘";color:var(--refuted);font-weight:700;}
 
   /* ---- delta-bars: a tiny before/after bar pair (M5 intervene) ---- */
-  .delta-bars-v3{display:grid;gap:.4rem;margin-top:.7rem;}
-  .db-row{display:grid;grid-template-columns:4.4rem 1fr 2.6rem;align-items:center;gap:.4rem;font-family:var(--font-mono);font-size:.64rem;color:var(--text-secondary);}
-  .db-track{height:9px;background:var(--surface-2);border-radius:3px;position:relative;overflow:hidden;}
-  .db-bar{position:absolute;left:0;top:0;height:100%;background:var(--border-strong);border-radius:3px;width:var(--w);}
+  .delta-bars-v3{display:grid;gap:.55rem;margin-top:.7rem;}
+  .db-row{display:grid;gap:.28rem;font-family:var(--font-mono);font-size:.66rem;color:var(--text-secondary);}
+  .db-label{display:flex;justify-content:space-between;}
+  .db-label b{color:var(--text-primary);}
+  .db-row.hit .db-label b{color:var(--refuted-ink);}
+  .db-track{height:11px;background:var(--surface-2);border-radius:3px;overflow:hidden;}
+  .db-bar{height:100%;background:var(--border-strong);border-radius:3px;width:var(--w);}
   .db-bar.hit{background:var(--refuted);}
-  .db-row b{text-align:right;color:var(--text-primary);}
-  .db-row.hit b{color:var(--refuted-ink);}
 
   @media (max-width:820px){.stage-dossier.combo summary{grid-template-columns:5.3rem 1fr auto;}.stage-dossier.combo .stage-purpose{grid-column:2 / -1;}.flow-sequence,.m23-sequence,.verify-sequence{grid-template-columns:1fr;}.flow-rail.rail-4{grid-template-columns:1fr;}.flow-arrow-v3{min-height:1.8rem;}.flow-arrow-v3::before{width:2px;height:1.8rem;}.flow-arrow-v3::after{right:50%;top:auto;bottom:-.08rem;transform:translateX(50%);border-inline:5px solid transparent;border-top:7px solid var(--brand);border-bottom:0;}.phase-bar{grid-template-columns:1fr;}.phase-bar div+div{border-left:0;border-top:1px solid var(--border);}.flow-rail{grid-template-columns:1fr;}.rail-arrow{transform:rotate(90deg);text-align:center;}.flowboard-foot{grid-template-columns:1fr;}.flowboard-foot>div+div{border-left:0;border-top:1px solid var(--border);}.repair-lab-v3{grid-template-columns:1fr;}.repair-stairs{grid-template-columns:1fr 1fr;gap:1rem;align-items:stretch;padding-top:1.2rem;}.repair-stairs::before{display:none;}.repair-step-v3{transform:none;}.repair-step-v3::after{display:none;}}
   @media (max-width:520px){.flowboard-head{align-items:flex-start;flex-direction:column;}.flowboard-out{max-width:none;width:100%;}.flow-sequence{padding:.9rem;}.analyzer-bank-v3{grid-template-columns:1fr 1fr;}.repair-stairs{grid-template-columns:1fr;}.sealed-rule{flex-direction:column;}}
@@ -768,9 +771,9 @@
               <div class="flowboard" role="img" aria-label="M1 flowchart: run candidate prompts and label pass or fail, let an LLM judge read the protocol to pick analyzers, route to compatible analyzer families, assemble a typed signal matrix, and audit coverage before handing the per-case signal table to M2">
                 <div class="flowboard-head"><div><span class="flowboard-kicker">M1 · failure discovery &amp; protocol-guided probing</span><h4>Which cases failed, and what's worth measuring on them?</h4></div><div class="flowboard-out"><span>Output</span><b>Per-case signal + label table</b></div></div>
                 <div class="flow-sequence">
-                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">01 · DISCOVER</span><span class="node-icon">D</span></div><h5>Failure discovery</h5><div class="case-stream"><i class="pass"></i><i class="pass"></i><i class="fail"></i><i class="pass"></i><i class="pass"></i><i class="pass"></i></div><p>Run, score, label — pass or fail.</p><div class="field-line"><code>case_id</code><code>label</code><code>provenance</code></div></div>
+                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">01 · DISCOVER</span><span class="node-icon">D</span></div><h5>Failure discovery</h5><div class="case-stream"><i class="pass"></i><i class="pass"></i><i class="fail"></i><i class="pass"></i><i class="pass"></i></div><p>Run, score, label — pass or fail.</p><div class="field-line"><code>case_id</code><code>label</code><code>provenance</code></div></div>
                   <div class="flow-arrow-v3">→</div>
-                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">02 · SELECT</span><span class="node-icon">P</span></div><h5 title="Judge reads description, task_domain, success_criteria and target_modalities; picks black-box (outputs only) or white-box (internals) analyzers and records why.">Protocol-guided router</h5><div class="candidate-stack-v3"><span class="chosen">attention</span><span class="chosen">grounding</span><span class="excluded">logit-lens</span><span class="excluded">termination</span></div><p>A judge reads the protocol, picks analyzers, records why.</p></div>
+                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">02 · SELECT</span><span class="node-icon">P</span></div><h5 title="Judge reads description, task_domain, success_criteria and target_modalities; picks black-box (outputs only) or white-box (internals) analyzers and records why.">Protocol-guided router</h5><div class="pick-chips-v3"><span class="on">attention</span><span class="on">grounding</span><span>consistency</span><span>logit-lens</span><span>termination</span></div><p>A judge reads the protocol, picks analyzers, records why.</p></div>
                   <div class="flow-arrow-v3">→</div>
                   <div class="flow-node-v3 hero"><div class="node-top"><span class="node-step">03 · PROBE</span><span class="node-icon">26</span></div><h5>Analyzer library</h5><p>Different families observe different failure surfaces.</p><div class="analyzer-bank-v3"><div class="analyzer-family"><b>Behavior</b><span>consistency · uncertainty · calibration</span></div><div class="analyzer-family"><b>Reasoning</b><span>termination · perturbation response</span></div><div class="analyzer-family"><b>Internals</b><span>attention · logits · representations</span></div><div class="analyzer-family"><b>Multimodal</b><span>grounding · hallucination · alignment</span></div></div></div>
                   <div class="flow-arrow-v3">→</div>
@@ -796,7 +799,7 @@
                 <div class="flow-sequence m23-sequence">
                   <div class="flow-node-v3"><div class="node-top"><span class="node-step">01 · FROM M1</span><span class="node-icon">▦</span></div><h5>Signal + label table</h5><p>M1's measurements, joined with pass/fail — the table both paths below share.</p><div class="matrix-v3"><span></span><span>a</span><span>b</span><span>c</span><span>d</span><span>001</span><i class="on"></i><i></i><i class="on"></i><i></i><span>002</span><i></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
                   <div class="flow-arrow-v3">→</div>
-                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">02 · EXPLORE</span><span class="node-icon">E</span></div><h5>Optional EDA</h5><div class="candidate-stack-v3"><span class="chosen" title="Host-adjudicated in-sample; carries an e-value, so it competes in the e-BH family.">peaked_attention</span><span class="excluded" title="No e-value — host-adjudicated but outside the e-BH family.">top1_share</span><span class="excluded" title="No e-value — host-adjudicated but outside the e-BH family.">peripheral_attn</span></div><p title="Agent-written code proposes candidates. Feeds M3's descriptive context only — never a statistical verdict.">Agent-written code proposes candidates — descriptive only.</p></div>
+                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">02 · EXPLORE</span><span class="node-icon">E</span></div><h5>Optional EDA</h5><div class="pick-chips-v3"><span class="on" title="Host-adjudicated in-sample; carries an e-value, so it competes in the e-BH family.">peaked_attention</span><span title="No e-value — host-adjudicated but outside the e-BH family.">top1_share</span><span title="No e-value — host-adjudicated but outside the e-BH family.">peripheral_attn</span></div><p title="Agent-written code proposes candidates. Feeds M3's descriptive context only — never a statistical verdict.">Agent-written code proposes candidates — descriptive only.</p></div>
                   <div class="flow-arrow-v3">→</div>
                   <div class="flow-node-v3 hero"><div class="node-top"><span class="node-step">03 · CONFIRM</span><span class="node-icon">q</span></div><h5 title="One run's catalyst signal (p=0.080) didn't survive — a 21° temperature imbalance between groups explained it instead.">Confirmatory stats engine</h5><p>Select → run (effect + CI + e-value) → e-BH correct.</p><div class="funnel-v3"><i style="--w:100%;--op:.35"></i><i style="--w:78%;--op:.5"></i><i style="--w:55%;--op:.7"></i><i style="--w:28%;--op:1"></i></div></div>
                   <div class="flow-arrow-v3">→</div>
@@ -853,7 +856,7 @@
                   <div class="repair-step-v3 hero" style="--rise:0;--tier-color:var(--ramp-5)"><b>L4 · PARAMETERS</b><span>fine-tune / adapter</span><em>highest allowed ceiling</em></div>
                 </div>
                 <div class="repair-lab-v3">
-                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">01 · INTERVENE</span><span class="node-icon">Δ</span></div><h5 title="Three strategies in priority order: an injected verify_fn, an analyzer-param sweep, or a default 10% FAIL-gap label split. Signal-only cases can seed the next M1 cycle.">Causal probe</h5><div class="delta-bars-v3"><div class="db-row"><span>signal absent</span><div class="db-track"><div class="db-bar" style="--w:20%"></div></div><b>20%</b></div><div class="db-row hit"><span>signal present</span><div class="db-track"><div class="db-bar hit" style="--w:34%"></div></div><b>34%</b></div></div><p>Change one variable, re-run — evidence, not a fix.</p></div>
+                  <div class="flow-node-v3"><div class="node-top"><span class="node-step">01 · INTERVENE</span><span class="node-icon">Δ</span></div><h5 title="Three strategies in priority order: an injected verify_fn, an analyzer-param sweep, or a default 10% FAIL-gap label split. Signal-only cases can seed the next M1 cycle.">Causal probe</h5><div class="delta-bars-v3"><div class="db-row"><div class="db-label"><span>absent</span><b>20%</b></div><div class="db-track"><div class="db-bar" style="--w:20%"></div></div></div><div class="db-row hit"><div class="db-label"><span>present</span><b>34%</b></div><div class="db-track"><div class="db-bar hit" style="--w:34%"></div></div></div></div><p>Change one variable, re-run — evidence, not a fix.</p></div>
                   <div class="flow-arrow-v3">→</div>
                   <div class="flow-node-v3"><div class="node-top"><span class="node-step">02 · SEARCH</span><span class="node-icon">3</span></div><h5>Candidate lab</h5><p>Discovery-side comparison only.</p><div class="candidate-stack-v3"><span>candidate A</span><span class="chosen">winner B</span><span>candidate C</span></div></div>
                   <div class="flow-arrow-v3">→</div>
